@@ -33,43 +33,30 @@ a {
     padding-bottom: 10px;
 }
 
-.add_board {
-    padding-bottom: 30px;
+.current_board{
+    height: 30px;
+    width: 300px;
+    background-color: #381DFC;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.add_board_msg {
-    margin-left: 35px;
-    font-size: larger;
-}
-.add_board_ip {
-    margin-left: 35px;
-    font-family: 'Alata', sans-serif;
-    font-weight: bold;
-    border-style: dotted;
-    width: 200px;
-}
-
-.add_board_btn {
+.add_list_btn{
     background-color: #381DFC;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Alata', sans-serif;
     color: white;
     height: 25px;
+    width: 150px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
-.all_boards {
-    padding-bottom: 30px;
-}
-
-.all_boards_msg {
-    margin-left: 35px;
-    font-size: larger;
-}
 
 .placeholders {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 #placeholder1{
@@ -89,6 +76,7 @@ a {
     width: 300px;
     background-color:  #44ABF8;
 }
+
 
 footer {
     background-color: #381DFC;
