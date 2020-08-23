@@ -24,7 +24,7 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 
 ## Time/Priority Matrix 
 
-[prioritized](https://res.cloudinary.com/doaftkgbv/image/upload/v1583773146/ValueVSComplexity_u2inhx.png)
+[prioritized](https://docs.google.com/presentation/d/1igh0lJlM-ysyFnUZPP5U7qRCc_QVuoV4jBBvbCJV-5E/edit?usp=sharing)
 
 ### MVP/PostMVP - 5min
 
