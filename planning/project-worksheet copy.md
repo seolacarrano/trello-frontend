@@ -35,7 +35,6 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 ### MVP/PostMVP - 5min
 
 #### MVP
-
 - Create function to request data and populate
 - Create function to create new data
 - Create function to delete data
@@ -47,7 +46,9 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 
 #### PostMVP 
 - Make hover effect
-- Social media icons
+- Add social media icons
+- Add button shadow effects
+- Change fonts
 
 
 ## Functional Components
@@ -61,20 +62,23 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | D | Create function to edit data | H | 2hrs | -hr | -hr|
 | E | Vue Implementation | H | 4hrs | -hr | -hr|
 | F | Vue Testing | H | 4hrs | -hr | -hr|
-| G | Build login page | H | 3hrs | 3hrs | 3hrs |
-| H | Build board page | H | 3hrs | 3hrs | 3hrs |
-| I | Build list page | H | -hr | -hr | -hr|
-| J | Make hamburger menu | H | 1hr| -hr | -hr |
-| K | media query | H | 2hrs | -hr | -hr|
-| L | Deployment | H | 2hrs| -hr | -hr |
-| Total | H | -hrs| -hrs | -hrs |
+| G | Build login page structure | M | 3hrs | 3hrs | 3hrs |
+| H | Build board page structure | M | 3hrs | 3hrs | 3hrs |
+| I | Build list page structure | M | 2hrs | 2hrs | 3hrs |
+| J | Drag and drop on list page | H | 4hrs | -hr | -hr |
+| K | Make hamburger menu | H | 1hr| -hr | -hr |
+| L | Media query | H | 2hrs | -hr | -hr|
+| M | Deployment | H | 2hrs| -hr | -hr |
+| Total | H | 33hrs| -hrs | -hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Hover effect | L | 1hr | -hr | -hr|
-| Social media icons | L | 1hr | -hr | -hr|
-| Total | H | 2hrs | -hrs | -hrs |
+| Social media icons | L | 5hrs | -hr | -hr|
+| Add button shadow effects | L | 4hrs | -hr | -hr|
+| Change fonts | L | 1hr | -hr | -hr|
+| Total | H | 11hrs | -hrs | -hrs |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and their role in the project. 
