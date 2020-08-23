@@ -19,7 +19,13 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 
 ## Wireframes
 
-[Wireframe](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1598061926/Screen_Shot_2020-08-21_at_10.04.40_PM_zs3paq.png)
+- [mobile-menu](https://res.cloudinary.com/g31ssa/image/upload/v1598214452/Mobile%20Menu.png)
+- [mobile-board](https://res.cloudinary.com/g31ssa/image/upload/v1598214510/Mobile%20Boards.png)
+- [mobile-list](https://res.cloudinary.com/g31ssa/image/upload/v1598214545/MObile%20List.png)
+- [tablet/desktop-menu](https://res.cloudinary.com/g31ssa/image/upload/v1598214576/Tablet%20and%20Web%20Main%20page.png)
+- [tablet/desktop-board](https://res.cloudinary.com/g31ssa/image/upload/v1598214781/boards.png)
+- [tablet/desktop-list](https://res.cloudinary.com/g31ssa/image/upload/v1598214753/lists.png)
+
 
 
 ## Time/Priority Matrix 
@@ -40,8 +46,8 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 - Deploy API and fronted application
 
 #### PostMVP 
-
 - Make hover effect
+- Social media icons
 
 
 ## Functional Components
@@ -55,7 +61,7 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | D | Create function to edit data | H | 2hrs | -hr | -hr|
 | E | Vue Implementation | H | 4hrs | -hr | -hr|
 | F | Vue Testing | H | 4hrs | -hr | -hr|
-| G | Build login page | H | -hr | -hr | -hr|
+| G | Build login page | H | 3hrs | 3hrs | 3hrs |
 | H | Build board page | H | 3hrs | 3hrs | 3hrs |
 | I | Build list page | H | -hr | -hr | -hr|
 | J | Make hamburger menu | H | 1hr| -hr | -hr |
@@ -67,7 +73,8 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Hover effect | L | 1hr | -hr | -hr|
-| Total | H | 1hr| -hrs | -hrs |
+| Social media icons | L | 1hr | -hr | -hr|
+| Total | H | 2hrs | -hrs | -hrs |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and their role in the project. 
@@ -87,6 +94,6 @@ function reverse(string) {
 **RESOLUTION**: This will be added later
 
 ## Backend Worksheet
- - [Readme's](https://github.com/krislee/trello-clone/blob/dev-mvp/planning/project-worksheet%20copy.md)
+ - [backend](https://github.com/krislee/trello-clone/blob/dev-mvp/planning/project-worksheet%20copy.md)
 
 ## Project Link
