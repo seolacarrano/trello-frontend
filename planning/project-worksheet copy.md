@@ -12,7 +12,7 @@
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
-Project Description
+For our unit03 project, we are creating a clone of the popular productivity app Trello. Users sign up and login with a custom username and password and then are taken to a mobile, tablet, and desktop application where they can add a board. In each board, they can add a card that holds a list of items tied to the specified card. Each user utilizes CRUD (i.e. create, read, update, and delete) functionality to manipulate each card and/or board on a backend server created and maintained by Ruby on Rails and SQL.
 
 ## Google Sheet
 [Google Sheet](https://docs.google.com/spreadsheets/d/1V1M3Eq1NXH2PNmeTlVviRhEjX9kenq769Vo2P5mMtro/edit#gid=0) 
@@ -49,10 +49,12 @@ Project Description
 #### MVP
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create function to request data and populate | H | -hr | -hr | -hr|
-| Create function to create new data | H | -hr | -hr | -hr|
-| Create function to delete data | H | -hr | -hr | -hr|
-| Create function to edit data | H | -hr | -hr | -hr|
+| Create function to request data and populate | H | 2hrs | -hr | -hr|
+| Create function to create new data | H | 2hrs | -hr | -hr|
+| Create function to delete data | H | 2hrs | -hr | -hr|
+| Create function to edit data | H | 2hrs | -hr | -hr|
+| Vue Implementation | H | 4hrs | -hr | -hr|
+| Vue Testing | H | 4hrs | -hr | -hr|
 | Build login page | H | -hr | -hr | -hr|
 | Build board page | H | 3hrs | 3hrs | 3hrs |
 | Build list page | M | -hr | -hr | -hr|
