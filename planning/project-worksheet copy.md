@@ -47,20 +47,20 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 ## Functional Components
 
 #### MVP
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Create function to request data and populate | H | 2hrs | -hr | -hr|
-| Create function to create new data | H | 2hrs | -hr | -hr|
-| Create function to delete data | H | 2hrs | -hr | -hr|
-| Create function to edit data | H | 2hrs | -hr | -hr|
-| Vue Implementation | H | 4hrs | -hr | -hr|
-| Vue Testing | H | 4hrs | -hr | -hr|
-| Build login page | H | -hr | -hr | -hr|
-| Build board page | H | 3hrs | 3hrs | 3hrs |
-| Build list page | M | -hr | -hr | -hr|
-| Make hamburger menu | H | -hr| -hr | -hr |
-| media query | H | -hr | -hr | -hr|
-| Deployment | H | -hrs| -hr | -hr |
+| letter | Component | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |:---: |
+| A | Create function to request data and populate | H | 2hrs | -hr | -hr|
+| B | Create function to create new data | H | 2hrs | -hr | -hr|
+| C | Create function to delete data | H | 2hrs | -hr | -hr|
+| D | Create function to edit data | H | 2hrs | -hr | -hr|
+| E | Vue Implementation | H | 4hrs | -hr | -hr|
+| F | Vue Testing | H | 4hrs | -hr | -hr|
+| G | Build login page | H | -hr | -hr | -hr|
+| H | Build board page | H | 3hrs | 3hrs | 3hrs |
+| I | Build list page | H | -hr | -hr | -hr|
+| J | Make hamburger menu | H | 1hr| -hr | -hr |
+| K | media query | H | 2hrs | -hr | -hr|
+| L | Deployment | H | 2hrs| -hr | -hr |
 | Total | H | -hrs| -hrs | -hrs |
 
 #### PostMVP
