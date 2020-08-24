@@ -35,11 +35,24 @@ a {
 
 .current_board{
     height: 30px;
-    width: 300px;
+    width: 170px;
     background-color: #381DFC;
     margin-top: 10px;
     margin-bottom: 10px;
+<<<<<<< HEAD
     color: white;
+=======
+    margin-left: 35px;
+    color: white;
+}
+
+.add_list_ip{
+    margin-left: 35px;
+    font-family: 'Alata', sans-serif;
+    font-weight: bold;
+    border-style: dotted;
+    width: 200px;
+>>>>>>> a1d7946afa37404511413031f51f2f5ef22d4b0c
 }
 
 .add_list_btn{
@@ -54,25 +67,25 @@ a {
 }
 
 
-.placeholders {
+.lists_container {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
 }
 
-#placeholder1{
+#list1{
     height: 300px;
     width: 300px;
     background-color: rgb(101,280,231);
 }
 
-#placeholder2{
+#list2{
     height: 300px;
     width: 300px;
     background-color: #E1EA35;
 }
 
-#placeholder3{
+#list3{
     height: 300px;
     width: 300px;
     background-color:  #44ABF8;
