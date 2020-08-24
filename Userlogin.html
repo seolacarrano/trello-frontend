@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src = "app.js" defer ></script>
+    <title>Userlogin</title>
+</head>
+<body>
+    <div id = "app"> 
+        <div id = 'nologin' v-if = "!loggedin">
+           <div id = "loginform">
+               <form v-on:submit.prevent = "handleLogin">
+            <fieldset><legend>LOGIN</legend>
+                <input type = "text" placeholder = "username" v-model = "createUN">
+                <input type = "password" placeholder = "password" v-model = "createPW">
+                <input type = "submit" value= "create user">
+            </fieldset>
+        </form>
+        </div>
+        <div id = 'login' v-if = "loggedin">
+            <h1> "This is user area" </h1>
+            <button v-on:click="handleLogOut">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
