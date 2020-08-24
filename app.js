@@ -3,7 +3,6 @@ const app = new Vue ({
     data : {
         loggedin: false, /* So the logic here is that based on the jwt token we recieve will switch the
                             boolean of out code so the user will be logged in and be able to taken into their boards */
-
         JwT : "",
         createUN: "",
         createPW: "",
@@ -50,12 +49,16 @@ const app = new Vue ({
             },
             body: JSON.stringify(user)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.error){
+                alert("sign up unsuccessful");
+            } else {
+                alert("sign up successful");
+            };
+            });
         },
-    }
+    },
 });
 
 
