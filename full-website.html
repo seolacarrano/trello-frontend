@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trello</title>
+    
+    <!-- (DEVELOPMENT) VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- CUSTOM CODE -->
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="board.css">
+</head>
+<body>
+    <div id="app">
+        <div id="loggedIn" v-if="!loggedIn">
+                <header>
+                        <nav>
+                            <div class="topnav"></div>
+                        </nav>
+                </header>
+                        <h1>Welcome to Tello</h1>
+                        <p>A project management tool that will help you plan, manage and execute all your projects. </p>
+                        <div class="formscontainer">
+                            <div class="signin">
+                                <div class="containerup">
+                                    <h2>SIGN IN</h2>
+                                    <form>
+                                        <input type="text" placeholder="Enter Username" id="uname" required v-model="loginUN">
+                                        <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
+                                        <button type="submit" v-on:click="handleLogin">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="signup">
+                                <div class="noaccount">
+                                    <h2 id="h2"> DON'T HAVE AN ACCOUNT? </h2>
+                    
+                                    <div class="signupmodal">
+                                        <a href="#popup" class="btn">Sign Up</a>
+                                        <div id="popup" class="modalpop">
+                                            <a href="#" class="close">&times;</a>
+                                            <h3>Sign up with</h3>
+                                            <h3>Or sign up using your email</h3>
+                                            <!-- <input type="text" placeholder="Enter Name" id="name" required> -->
+                                            <input type="text" placeholder="Enter Username" id="email" required v-model="createUN">
+                                            <input type="password" placeholder="Enter Password" id="pssw" required v-model="createPW">
+                                            <button type="submit" id="create" v-on:click="handleSignup">Create</button>
+                                        </div>
+                                        <a href="#" class="close-popup"></a>
+                                    </div>
+                    
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                    
+                <footer>
+                    <p id="footer">All rights reserved @Tello blah blah G.S</p>
+                </footer> 
+        </div>
+        <div id="board" v-if="loggedIn">
+                <header>
+                        <nav>
+                            <div class="topnav"></div>
+                            <div class="home_link">
+                                <a v-on:click="handleLogout"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a>
+                            </div>
+                        </nav>
+                </header>
+                    
+                    <div class="add_board">
+                        <p class="add_board_msg">+ Create a New Board</p>
+                        <input class="add_board_ip" type="text" placeholder="Add Board Title">
+                        <button class="add_board_btn">CREATE</button>
+                    </div>
+                    
+                    
+                    <div class="all_boards">
+                        <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
+                        <div class="placeholders">
+                            <div id="placeholder1"></div>
+                            <div id="placeholder2"></div>
+                            <div id="placeholder3"></div>
+                        </div>
+                    </div>
+                    
+                    
+                    <footer></footer>
+        </div>
+    </div>
+</body>
+</html>
