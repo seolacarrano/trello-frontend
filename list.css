@@ -39,11 +39,12 @@ a {
     background-color: #381DFC;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: white;
 }
 
 .add_list_btn{
-    background-color: #381DFC;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(101,280,231);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
     font-family: 'Alata', sans-serif;
     color: white;
     height: 25px;
