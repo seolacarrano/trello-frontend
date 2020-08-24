@@ -131,11 +131,13 @@ a {
     padding: 10px;
     width: 500px;
     border-radius: 0.5em;
+    /*position of modal on screen*/
     top: 50%;
     left: 50%;
     color: #000;
     transform: translate(-50%, -50%);
     background-color: rgba(255,255,255,1);
+    /*this is to make modal window disappear when clicking x /Visibility -Transition */
     visibility: hidden;
     opacity: 0;
     transition: opacity .5s, visibility 0s linear .5s;
@@ -168,8 +170,8 @@ a {
 .modalpop .close:hover {
     color: #44ABF8;
 }
-.close-popup {
-    background-color: rgba(0,0,0,.7);
+.closepop {
+    background-color: rgba(0,0,0,.8);
     cursor: default;
     position: fixed;
     top:0;
@@ -180,7 +182,7 @@ a {
     visibility: hidden;
     transition: opacity .5s, visibility 0s linear .5s;
 }
-.modalpop:target + .close-popup {
+.modalpop:target + .closepop {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
@@ -199,7 +201,7 @@ footer {
 /*-Media Queries---------------------------------------------*/
 @media (max-width:860px){
     #h2{
-    font-size: 20px;
+        font-size: 20px;
     }
 }
 @media (max-width:800px){
@@ -207,7 +209,7 @@ footer {
         background-color: #381DFC;
     }
     nav{
-      visibility: hidden;
+        visibility: hidden;
     }
     h1{
         color: white;

@@ -18,11 +18,17 @@
 
 <body>
 <header>
-    <nav>
-        <div class="topnav"></div>
-        <div class="home_link">
-            <a href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a>
-        </div>
+    <nav id="menutoggle">
+        <input id="toggle" type="checkbox">
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+            <li class="menuoptions"><a href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:45px;"></i></a></li>
+            <li class="menuoptions"><a href="#">Home</a></li>
+            <li class="menuoptions"><a href="#">Boards</a></li>
+            <li class="menuoptions"><a href="#">Sign Out</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -31,15 +37,6 @@
     <input class="add_list_ip" type="text" placeholder="Add List Title">
     <button class="add_list_btn">Add List</button>
 </div>
-<!--
-<div class="lists_in_board">
-    <div class="lists_container">
-        <div id="list1"></div>
-        <div id="list2"></div>
-        <div id="list3"></div>
-    </div>
-</div>
--->
 
 <!-----------------drag and drop------------------------------>
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
@@ -56,6 +53,7 @@
         });
     });
 </script>
+
 <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row">
@@ -155,7 +153,6 @@
         </div>
     </div>
 </div>
-
 <footer></footer>
 </body>
 </html>

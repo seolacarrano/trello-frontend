@@ -6,28 +6,29 @@ body {
     padding: 0;
 }
 
-.topnav{
-    background-color: #381DFC;
-    height: 25px;
-    width: 100%;
+#menu{
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
 }
-
-nav {
-    background-color: #44ABF8;
-    height: 75px;
-    width: 100%;
-}
-
 #logo {
-    padding-left: 40px;
     padding-top: 10px;
+    display:flex ;
 }
-
 a {
     text-decoration: none;
-    color: white;
+    color: #44ABF8;
 }
-
+ul{
+    list-style-type: none;
+}
+li{
+    margin-right: 20px ;
+    font-size: 20px;
+}
+#toggle{
+    visibility: hidden;
+}
 #home {
     padding-left: 1100px;
     padding-bottom: 10px;
@@ -35,6 +36,8 @@ a {
 
 .add_board {
     padding-bottom: 30px;
+    margin-top: 50px;
+    padding-left: 6px;
 }
 
 .add_board_msg {
@@ -48,7 +51,6 @@ a {
     border-style: dotted;
     width: 200px;
 }
-
 .add_board_btn {
     background-color: #381DFC;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -63,13 +65,15 @@ a {
 }
 
 .all_boards_msg {
-    margin-left: 35px;
+    margin-left: 45px;
     font-size: larger;
 }
 
 .placeholders {
     display: flex;
     justify-content: space-around;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #placeholder1{
@@ -94,5 +98,121 @@ footer {
     background-color: #381DFC;
     height: 60px;
     width: 100%;
-    margn: 0 auto;
+    margin: 0 auto;
+}
+/*-Media Queries---------------------------------------------*/
+@media (max-width:800px){
+    /*Hamburger Menu*/
+    #menu{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home_link{
+        justify-content: flex-end;
+    }
+
+    #toggle{
+        visibility: visible;
+    }
+
+    #logo{
+        margin-bottom: 20px;
+    }
+
+    a{
+        text-decoration:none;
+        color: #44ABF8;
+        transition:#44ABF8 0.3s ease ;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        color: #E1EA35;
+    }
+
+    #menutoggle{
+        display:block;
+        position: relative;
+        top: 30px;
+        left: 40px;
+        z-index: 1;
+    }
+
+    #menutoggle input{
+        display: block;
+        width: 50px;
+        height:50px;
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    #menutoggle span{
+        display: block;
+        width: 32px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: #381DFC;
+        z-index: 1;
+        transform-origin: 1px -2px;
+    }
+
+    #menutoggle span:first-child{
+        transform-origin: 0% 0% ;
+    }
+
+    #menutoggle span:nth-last-child(2){
+        transform-origin: 0% 100% ;
+    }
+
+    #menutoggle input:checked ~ span{
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background-color: #381DFC;
+    }
+
+    #menutoggle input:checked ~ span:nth-last-child(3){
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    #menutoggle input:checked ~span:nth-last-child(2){
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    #menu{
+        position: absolute;
+        width: 250px;
+        height: 100vh;
+        margin: -100px 0 0 -60px;
+        padding-top: 160px ;
+        list-style: none;
+        background-color:white;
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0%);
+        transition: transform 0.5s;
+    }
+
+    menu, li{
+        position: relative;
+        padding: 10px 0;
+        font-size: 30px;
+        display: block;
+    }
+
+    #menutoggle input:checked ~ ul{
+        transform: translate(0,0)
+    }
+
+    /*Modal for Board*/
+
+
+
+
+
 }
