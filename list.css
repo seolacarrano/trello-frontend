@@ -39,9 +39,7 @@ a {
     background-color: #381DFC;
     margin-top: 10px;
     margin-bottom: 10px;
-<<<<<<< HEAD
     color: white;
-=======
     margin-left: 35px;
     color: white;
 }
@@ -52,7 +50,6 @@ a {
     font-weight: bold;
     border-style: dotted;
     width: 200px;
->>>>>>> a1d7946afa37404511413031f51f2f5ef22d4b0c
 }
 
 .add_list_btn{
