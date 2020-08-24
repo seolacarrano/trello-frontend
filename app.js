@@ -7,6 +7,8 @@ const app = new Vue ({
         JwT : "",
         createUN: "",
         createPW: "",
+        loginUN:"",
+        loginPW:"",
         devURL: "http://localhost:3000",
         prodURL: null,
         user: null,
@@ -14,9 +16,8 @@ const app = new Vue ({
     },
     methods: {
             handleLogin: function() {
-
-            const URL = this.prodURL ? this.prodURL : this.devURL
-            const user = {username: this.createUN,password: this.createPW}
+            const URL = this.prodURL ? this.prodURL : this.devURL;
+            const user = {username: this.loginUN,password: this.loginPW}
             fetch(`${URL}/login`, {
             method: "POST",
             headers: {
@@ -29,8 +30,8 @@ const app = new Vue ({
                 this.user = data.user;
                 this.token = data.token;
                 this.loggedin = true;
-                this.createPW = ""
-                this.createUN = ""
+                this.loginPW = ""
+                this.loginUN = ""
             });
         },
         handleLogOut: function() {
@@ -38,7 +39,23 @@ const app = new Vue ({
             this.user=null;
             this.token=null;
         },
-    },
+        handleSignup: function(){
+            const URL = this.prodURL ? this.prodURL : this.devURL;
+            const user = { username: this.createUN, password: this.createPW };
+
+            fetch(`${URL}/users`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            })
+        },
+    }
 });
 
 

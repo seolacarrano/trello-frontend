@@ -11,11 +11,16 @@
     <div id = "app"> 
         <div id = 'nologin' v-if = "!loggedin">
            <div id = "loginform">
-               <form v-on:submit.prevent = "handleLogin">
+               <form v-on:submit.prevent = "handleSignup">
             <fieldset><legend>LOGIN</legend>
-                <input type = "text" placeholder = "username" v-model = "createUN">
-                <input type = "password" placeholder = "password" v-model = "createPW">
-                <input type = "submit" value= "create user">
+                <input type = "text" placeholder = "username" v-model = "loginUN">
+                <input type = "password" placeholder = "password" v-model = "loginPW">
+                <input type = "submit" value= "login">
+            </fieldset>
+            <fieldset><legend>CREATE USER</legend>
+            <input type = "text" placeholder = "username" v-model = "createUN">
+            <input type = "password" placeholder = "password" v-model = "createPW">
+            <input type = submit" value = "create user">
             </fieldset>
         </form>
         </div>
