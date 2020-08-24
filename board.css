@@ -5,15 +5,12 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.topnav{
-    background-color: #381DFC;
-    height: 25px;
-    width: 100%;
+#menu{
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
 }
-
 #logo {
-    padding-left: 40px;
     padding-top: 10px;
     display:flex ;
 }
@@ -23,6 +20,10 @@ a {
 }
 ul{
     list-style-type: none;
+}
+li{
+    margin-right: 20px ;
+    font-size: 20px;
 }
 #toggle{
     visibility: hidden;
@@ -35,6 +36,7 @@ ul{
 .add_board {
     padding-bottom: 30px;
     margin-top: 50px;
+    padding-left: 6px;
 }
 
 .add_board_msg {
@@ -48,7 +50,6 @@ ul{
     border-style: dotted;
     width: 200px;
 }
-
 .add_board_btn {
     background-color: #381DFC;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -63,13 +64,15 @@ ul{
 }
 
 .all_boards_msg {
-    margin-left: 35px;
+    margin-left: 45px;
     font-size: larger;
 }
 
 .placeholders {
     display: flex;
     justify-content: space-around;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #placeholder1{
@@ -98,16 +101,25 @@ footer {
 }
 /*-Media Queries---------------------------------------------*/
 @media (max-width:800px){
+    /*Hamburger Menu*/
+    #menu{
+        display: flex;
+        flex-direction: column;
+    }
     .home_link{
         justify-content: flex-end;
     }
     #toggle{
         visibility: visible;
     }
+    #logo{
+        margin-bottom: 20px;
+    }
     a{
         text-decoration:none;
         color: #44ABF8;
         transition:#44ABF8 0.3s ease ;
+        margin-left: 10px;
     }
     a:hover {
         color: #E1EA35;
@@ -165,7 +177,7 @@ footer {
         margin: -100px 0 0 -60px;
         padding-top: 160px ;
         list-style: none;
-        background-color: white;
+        background-color:white;
         transform-origin: 0% 0%;
         transform: translate(-100%, 0%);
         transition: transform 0.5s;
@@ -179,5 +191,11 @@ footer {
     #menutoggle input:checked ~ ul{
         transform: translate(0,0)
     }
+
+    /*Modal for Board*/
+
+
+
+
 
 }
