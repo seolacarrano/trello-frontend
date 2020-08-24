@@ -96,3 +96,7 @@ footer {
     width: 100%;
     margn: 0 auto;
 }
+/*-Media Queries---------------------------------------------*/
+@media (max-width:800px){
+
+}
