@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Do+Hyeon&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');
 body {
     font-family: 'Alata', sans-serif;
     margin: 0;
@@ -58,7 +58,7 @@ a {
 .add_list_btn{
     background-color: rgb(101,280,231);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
-    font-family: 'Alata', sans-serif;
+    font-family: 'Crimson Text', serif;
     color: white;
     height: 25px;
     width: 150px;
