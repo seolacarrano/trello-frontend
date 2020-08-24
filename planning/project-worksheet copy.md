@@ -81,9 +81,9 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | Total | H | 11hrs | -hrs | -hrs |
 
 ## Additional Libraries
--[Vue](https://vuejs.org)
--[Bootstrap](https://getbootstrap.com/)
--[jQuery](https://jquery.com/)
+- [Vue](https://vuejs.org)
+- [Bootstrap](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
 
 ## Code Snippet
 
