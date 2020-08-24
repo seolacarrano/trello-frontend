@@ -5,31 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src = "app.js" defer ></script>
+    <link rel="stylesheet" href="style.css">
     <title>Userlogin</title>
 </head>
 <body>
     <div id = "app"> 
         <div id = 'nologin' v-if = "!loggedin">
-           <div id = "loginform">
-               <form v-on:submit.prevent = "handleLogin">
-            <fieldset><legend>LOGIN</legend>
-                <input type = "text" placeholder = "username" v-model = "loginUN">
-                <input type = "password" placeholder = "password" v-model = "loginPW">
-                <input type = "submit" value = "login">
-            </fieldset>
-            </form>
-            <form v-on:submit.prevent = "handleSignup">
-            <fieldset><legend>CREATE USER</legend>
-            <input type = "text" placeholder = "username" v-model = "createUN">
-            <input type = "password" placeholder = "password" v-model = "createPW">
-            <input type = "submit" value = "create user">
-            </fieldset>
-        </form>
-        </div>
-        <div id = 'login' v-if = "loggedin">
-            <h1> "This is user area" </h1>
-            <button v-on:click="handleLogOut">Logout</button>
-        </div>
-    </div>
-</body>
-</html>
+            <header>
+                <nav>
+                    <div class="topnav"></div>
+                </nav>
+            </header>
+                <h1>Welcome to Tello</h1>
+                <p>A project management tool that will help you plan, manage and execute all your projects. </p>
+                <div class="formscontainer">
+                    <div class="signin">
+                        <div class="containerup">
+                            <!-- LOG IN-->
+                                <div id = "loginform">
+                        <form v-on:submit.prevent = "handleLogin"></form>
+                        </form>
+                                </div>
+                            <h2>SIGN IN</h2>
+                        <input type="text" placeholder="Enter Username" v-model = "loginUN" id="uname" required> 
+                        <input type="password" placeholder="Enter Password" v-model = "loginPW" id="psw" required> 
+                        <button type="submit"><a href="./board.html">Login</a></button> 
+                        </div>
+                    </div>
+                    <div class="signup">
+                        <div class="noaccount">
+                            <h2 id="h2"> DON'T HAVE AN ACCOUNT? </h2>
+                            <div class="signupmodal">
+                                <!-- SIGN UP-->
+                            <div id = 'signupform'>
+                                <form v-on:submit.prevent = "handleSignup">
+                                </form>
+                                </div>
+
+                                <a href="#popup" class="btn">Sign Up</a>
+                                <div id="popup" class="modalpop">
+                                    <a href="#" class="close">&times;</a>
+                                    <h3>Sign up with</h3>
+                                    <h3>Or sign up using your email</h3>
+                                    <input type="text" placeholder="Enter Name" v-model = "createUN" id="name" required>
+                                    <input type="text" placeholder="Enter Email" id="email" required>
+                                    <input type="password" placeholder="Password" v-model = "createPW" id="pssw" required>
+                                    <button type="submit" id="create">Create</button>
+                                </div>
+                                <a href="#" class="close-popup"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <footer>
+                <p id="footer">All rights reserved @Tello blah blah G.S</p>
+            </footer>
