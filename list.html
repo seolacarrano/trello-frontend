@@ -41,12 +41,12 @@
 </div>
 -->
 
-<!--drag and drop-->
+<!-----------------drag and drop------------------------------>
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
 <script>
     $(document).ready(function() {
-        var example2Left = document.getElementById('example2-left');
-        var example2Right = document.getElementById('example2-right');
+        const example2Left = document.getElementById('example2-left');
+        const example2Right = document.getElementById('example2-right');
         new Sortable(example2Left, {
             group: 'shared', // set both lists to same group animation: 150
         });
@@ -64,9 +64,37 @@
                     <div class="list list-row card" id="sortable" data-sortable-id="0" aria-dropeffect="move">
                         <div class="row">
                             <div class="col-md-6" id="example2-left">
+                                <div class="name_of_list">Name of List</div>
+                                <div class="add_item">
+                                    <input class="add_item_ip" type="text" placeholder="Add a new item">
+                                    <button class="add_item_btn">Add Item</button>
+                                </div>
                                 <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
                                     <!--<div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">S</span></a></div>-->
+
                                     <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">item1</a>
+                                        <!--<div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>-->
+                                    </div>
+                                    <div class="no-wrap">
+                                        <div class="item-date text-muted text-sm d-none d-md-block">15 weeks ago</div>
+                                    </div>
+                                    <div>
+                                        <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="5" r="1"></circle>
+                                            <circle cx="12" cy="19" r="1"></circle>
+                                        </svg> </a>
+                                            <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"><a class="dropdown-item edit" data-abc="true">Edit</a>
+                                                <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
+                                    <!--<div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">S</span></a></div>-->
+
+                                    <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">item2</a>
                                         <!--<div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>-->
                                     </div>
                                     <div class="no-wrap">
@@ -87,7 +115,13 @@
 
                             </div>
 
+
                             <div class="col-md-6" id="example2-right">
+                                <div class="name_of_list">Name of List</div>
+                                <div class="add_item">
+                                    <input class="add_item_ip" type="text" placeholder="Add a new item">
+                                    <button class="add_item_btn">Add Item</button>
+                                </div>
                                 <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
                                     <!--<div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">S</span></a></div>-->
                                     <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">item2</a>
