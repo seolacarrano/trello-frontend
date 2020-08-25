@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tello</title>
+
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- CUSTOM CODE -->
+    <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="board.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <!-- NOT LOGGED IN PAGE -->
+        <div id="nologin" v-if="!loggedin">
+                <header>
+                        <nav>
+                            <div class="topnav"></div>
+                        </nav>
+                    </header>
+                    <h1>Welcome to Tello</h1>
+                    <p>A project management tool that will help you plan, manage and execute all your projects. </p>
+                    <div class="formscontainer">
+                        <div class="signin">
+                            <div class="containerup">
+                                <h2>SIGN IN</h2>
+                                <form v-on:submit.prevent="handleLogin">
+                                    <input type="email" placeholder="Enter Email" id="uname" required v-model="loginUN">
+                                    <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
+                                    <!-- V1 BUTTON -->
+                                    <!-- <button type="submit"><a href="./board.html">Login</a></button> -->
+    
+                                    <!-- V2 BUTTON -->
+                                    <button type="submit">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="signup">
+                            <div class="noaccount">
+                                <h2 id="h2"> DON'T HAVE AN ACCOUNT? </h2>
+                    
+                                <div class="signupmodal">
+                                    <a href="#popup" class="btn">Sign Up</a>
+                                    <div id="popup" class="modalpop">
+                                        <a href="#" class="close">&times;</a>
+                                        <h3>Sign up with</h3>
+                                        <h3>Or sign up using your email</h3>
+                                        <form v-on:submit.prevent="handleSignup">
+                                            <!-- <input type="text" placeholder="Enter Name" id="name" required> -->
+                                            <input type="email" placeholder="Email" id="email" required v-model="createUN">
+                                            <input type="password" placeholder="Password" id="pssw" required v-model="createPW">
+                                            <button type="submit" id="create">Create</button>
+                                        </form>
+                                    </div>
+                                    <a href="#" class="closepop"></a>
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                    
+                    </div>
+                    
+                    <footer>
+                        <p id="footer">All rights reserved @Tello blah blah G.S</p>
+                    </footer>
+        </div>
+
+        <!-- LOGGED IN PAGE -->
+        <div id="login" v-if="loggedin">
+                <header>
+                        <nav id="menutoggle">
+                            <input id="toggle" type="checkbox">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <ul id="menu">
+                                <li class="menuoptions"><a href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a></li>
+                                <li class="menuoptions"><a href="#">Home</a></li>
+                                <li class="menuoptions"><a href="#">Boards</a></li>
+                                <li class="menuoptions" v-on:click="handleLogOut"><a href="#">Sign Out</a></li>
+                            </ul>
+                        </nav>
+                    
+                    </header>
+                    
+                    <div class="add_board">
+                        <p class="add_board_msg">+ Create a New Board</p>
+                        <input class="add_board_ip" type="text" placeholder="Add Board Title">
+                        <button class="add_board_btn">CREATE</button>
+                    </div>
+                    
+                    
+                    <div class="all_boards">
+                        <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
+                        <div class="placeholders">
+                            <div id="placeholder1"></div>
+                            <div id="placeholder2"></div>
+                            <div id="placeholder3"></div>
+                        </div>
+                    </div>
+                    
+                    
+                    <footer></footer>
+        </div>
+    </div>
+</body>
+</html>
