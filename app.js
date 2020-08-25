@@ -9,7 +9,7 @@ const app = new Vue ({
         loginUN:"",
         loginPW:"",
         devURL: "http://localhost:3000",
-        prodURL: null,
+        prodURL: "http://trelloappclone.herokuapp.com/",
         user: null,
         token: null,
         boardSingle: false,
