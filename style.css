@@ -66,7 +66,7 @@ h2{
     margin-bottom: 20px;
     width: 100%;
 }
-button {
+#loginbutton, #create{
     background-color: #44ABF8;
     color: white;
     padding: 14px 20px;
@@ -79,13 +79,22 @@ button {
     font-size:16px;
     font-family: 'Crimson Text', serif;
 }
-button:hover {
+#loginbutton, #create:hover {
     opacity: 0.8;
 }
+
 input{
     font-family: 'Crimson Text', serif;
 }
-/*-----------------------------------------------------------*/
+#a-login{
+    color: white;
+    text-decoration: none;
+}
+#close_x{
+    text-decoration: none;
+}
+
+/*--Modal/ Sign Up --------------------------------------------------------*/
 .signup{
     width:500px;
     height: 400px;
@@ -106,7 +115,8 @@ h3{
     font-family: 'Crimson Text', serif;
 
 }
-a {
+
+.btn{
     color: white;
     text-decoration: none;
 }

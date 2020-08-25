@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Do+Hyeon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');
 body {
-    font-family: 'Alata', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -18,7 +17,7 @@ body {
     display:flex ;
 }
 
-a {
+.menulist{
     text-decoration: none;
     color: #44ABF8;
 }
@@ -224,14 +223,14 @@ footer {
         margin-bottom: 20px;
     }
 
-    a{
+    .menulist{
         text-decoration:none;
         color: #44ABF8;
         transition:#44ABF8 0.3s ease ;
         margin-left: 10px;
     }
 
-    a:hover {
+    .menulist:hover {
         color: #E1EA35;
     }
 
