@@ -191,11 +191,4 @@ footer {
     #menutoggle input:checked ~ ul{
         transform: translate(0,0)
     }
-
-    /*Modal for Board*/
-
-
-
-
-
 }
