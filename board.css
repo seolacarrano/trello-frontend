@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 #menu{
     display: flex;
     flex-direction: row;
@@ -107,7 +106,6 @@ footer {
         display: flex;
         flex-direction: column;
     }
-
     .home_link{
         justify-content: flex-end;
     }
@@ -115,7 +113,6 @@ footer {
     #toggle{
         visibility: visible;
     }
-
     #logo{
         margin-bottom: 20px;
     }
