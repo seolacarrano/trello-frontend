@@ -28,7 +28,7 @@
                             <div class="signin">
                                 <div class="containerup">
                                     <h2>SIGN IN</h2>
-                                    <form>
+                                    <form v-on:submit.prevent="handleLogin">
                                         <input type="text" placeholder="Enter Username" id="uname" required v-model="loginUN">
                                         <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
                                         <button type="submit" v-on:click="handleLogin">Login</button>
@@ -75,17 +75,23 @@
                     
                     <div class="add_board">
                         <p class="add_board_msg">+ Create a New Board</p>
-                        <input class="add_board_ip" type="text" placeholder="Add Board Title">
-                        <button class="add_board_btn">CREATE</button>
+                        <input class="add_board_ip" type="text" placeholder="Add Board Title" v-model="newBoard">
+                        <button class="add_board_btn" v-on:click="createBoard">CREATE</button>
                     </div>
                     
                     
                     <div class="all_boards">
                         <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
-                        <div class="placeholders">
-                            <div id="placeholder1"></div>
+                        <div class="placeholders" v-for="board of boards">
+                            <div id="placeholder1">
+                                {{board.board_name}}
+                                <button>Delete</button>
+                                <button>Update</button>
+                                <button>Lists</button>
+                            </div>
+                            <!-- <div id="placeholder1"></div>
                             <div id="placeholder2"></div>
-                            <div id="placeholder3"></div>
+                            <div id="placeholder3"></div> -->
                         </div>
                     </div>
                     
