@@ -12,8 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" defer></script>-->
-    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -24,10 +22,10 @@
         <span></span>
         <span></span>
         <ul id="menu">
-            <li class="menuoptions"><a class="menulist" href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a></li>
-            <li class="menuoptions"><a class="menulist" href="#">Home</a></li>
-            <li class="menuoptions"><a class="menulist" href="#">Boards</a></li>
-            <li class="menuoptions"><a class="menulist" href="#">Sign Out</a></li>
+            <li class="menuoptions"><a href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:45px;"></i></a></li>
+            <li class="menuoptions"><a href="#">Home</a></li>
+            <li class="menuoptions"><a href="#">Boards</a></li>
+            <li class="menuoptions"><a href="#">Sign Out</a></li>
         </ul>
     </nav>
 </header>
@@ -37,6 +35,7 @@
     <input class="add_list_ip" type="text" placeholder="Add List Title">
     <button class="add_list_btn">Add List</button>
 </div>
+
 
 <!-----------------drag and drop------------------------------>
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
@@ -77,19 +76,16 @@
                                                 <circle cx="12" cy="5" r="1"></circle>
                                                 <circle cx="12" cy="19" r="1"></circle>
                                             </svg> </a>
-                                                <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"><a class="dropdown-item edit" data-abc="true">Edit</a>
+                                                <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
+                                                    <a href="#popup" class="dropdown-item edit" data-abc="true">Edit</a>
                                                     <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
                                 </div>
-
                             </div>
+
 
 
                             <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-right">
@@ -108,7 +104,8 @@
                                                 <circle cx="12" cy="5" r="1"></circle>
                                                 <circle cx="12" cy="19" r="1"></circle>
                                             </svg> </a>
-                                                <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"><a class="dropdown-item edit" data-abc="true">Edit</a>
+                                                <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
+                                                    <a href="#popup" class="dropdown-item edit" data-abc="true">Edit</a>
                                                     <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
                                                 </div>
                                             </div>
@@ -123,6 +120,13 @@
         </div>
     </div>
 </div>
+
 <footer></footer>
+<div id="popup" class="modalpop">
+    <a href="#" class="close">&times;</a>
+    <input type="text" placeholder="Edit Item" id="edit_ip" required>
+    <button type="submit" id="save_edit">Edit</button>
+</div>
+<a href="#" class="closepop"></a>
 </body>
 </html>
