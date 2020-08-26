@@ -123,11 +123,11 @@
                                                     <button class="add_item_btn" v-bind:id="list.id" v-on:click="createItem">Add Item</button>
                                                 </div>
                                                 <!-- ITEMS -->
-                                                <div id="all_lists_right">
-                                                    <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" v-for="item of allItems" v-if="list.id == item.list_id">
-                                        
-                                                        <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">{{item.item_name}}</a>
-                                                        </div>
+                                                 <!-- ITEMS -->
+                                                 <div id="all_lists_right" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop">
+                                                    <!-- Add item id and list id to delete this item from the current list -->
+                                                    <div v-bind:id="list.id" v-on:dragstart="dragItem" v-for="item of allItems" v-if="list.id == item.list_id" class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
+                                                        <div class="flex" v-bind:id="item.id"> <a href="#" class="item-author text-color" data-abc="true" v-bind:itemName="item.item_name">{{item.item_name}}</a></div>
                                                         <!-- THIS IS WHERE YOU NEED TO ADD EDIT AND DELETE  -->
                                                         <div>
                                                             <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
