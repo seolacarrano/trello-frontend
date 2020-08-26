@@ -9,7 +9,7 @@ const app = new Vue ({
         loginUN:"",
         loginPW:"",
         devURL: "http://localhost:3000",
-        prodURL: null,
+        prodURL: "https://trelloappclone.herokuapp.com",
         user: null,
         token: null,
         boardSingle: false,
@@ -22,7 +22,9 @@ const app = new Vue ({
         listInput: "",
         listID: 0,
         allItems: [],
-        input:{}
+        input:{},
+        itemID: 0,
+        updatingItem: ""
     },
     methods: {
             handleLogin: function() {
@@ -198,6 +200,56 @@ const app = new Vue ({
             .then(data => {
               this.allItems = data
               console.log(this.allItems)
+            })
+        },
+        editItem: function(e){
+            console.log(e.target.id)
+            this.itemID = e.target.id
+            this.listID = e.target.getAttribute('id2')
+            console.log(this.itemID)
+            console.log(this.listID)
+            const item = this.allItems.find(item => {
+                return item.id == this.itemID
+            })
+            this.updatingItem = item.item_name
+            console.log(this.updatingItem)
+        },
+        updateItem: function(e){
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            // this.listID = e.target.id
+            // this.listID = this["list.id"]
+            // console.log(this.listID)
+            // console.log(this.itemID)
+            const changeItem = {item_name: this.updatingItem}
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
+                method: "put",
+                headers: {
+                    Authorization: `bearer ${this.token}`
+                },
+                body: JSON.stringify(changeItem)
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (!data.response){
+                this.showItems()
+            }
+            })
+        },
+        deleteItem: function(e){
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            this.itemID = e.target.id
+            this.listID = e.target.getAttribute('id2')
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
+                method: "delete",
+                headers: {
+                    Authorization: `bearer ${this.token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (!data.response){
+                this.showItems()
+            }
             })
         }
     }
