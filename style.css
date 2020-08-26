@@ -4,42 +4,45 @@ body {
     margin: 0;
     padding: 0;
 }
-nav {
+
+#nologin #nav {
     background-color: #44ABF8;
     height: 75px;
     width: 100%;
 }
 
-.topnav{
+#nologin .topnav{
     background-color: #381DFC;
     height: 25px;
     width: 100%;
 }
 /*-----------------------------------------------------------*/
-h1{
+#nologin h1{
     text-align: center;
     color:#381DFC;
     font-family: 'Eczar', serif;
 }
-p{
+
+#nologin p{
     text-align: center;
     color:#585454;
     font-family: 'Crimson Text', serif;
 }
-.formscontainer{
+#nologin .formscontainer{
     width:100%;
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
     margin-top: 20px;
     justify-content: center;
+    align-items: center;
 }
-h2{
+#nologin h2{
     color:white;
     text-align: center;
     font-family: 'Eczar', serif;
 }
-.signin{
+#nologin .signin{
     width:500px;
     height: 400px;
     background-color:rgb(101,280,231);
@@ -47,7 +50,7 @@ h2{
     align-content: center;
     border-radius: 0.5em;
 }
-.containerup{
+#nologin .containerup{
     width:50%;
     height: auto;
     display: flex;
@@ -58,15 +61,15 @@ h2{
     align-items: center;
 
 }
-#uname{
+#nologin #uname{
     margin-bottom: 20px;
     width: 100%;
 }
-#psw{
+#nologin #psw{
     margin-bottom: 20px;
     width: 100%;
 }
-#loginbutton, #create{
+#nologin #loginbutton, #create{
     background-color: #44ABF8;
     color: white;
     padding: 14px 20px;
@@ -79,23 +82,23 @@ h2{
     font-size:16px;
     font-family: 'Crimson Text', serif;
 }
-#loginbutton, #create:hover {
+#nologin #loginbutton, #create:hover {
     opacity: 0.8;
 }
 
-input{
+#nologin input{
     font-family: 'Crimson Text', serif;
 }
-#a-login{
+#nologin #a-login{
     color: white;
     text-decoration: none;
 }
-#close_x{
+#nologin #close_x{
     text-decoration: none;
 }
 
 /*--Modal/ Sign Up --------------------------------------------------------*/
-.signup{
+#nologin .signup{
     width:500px;
     height: 400px;
     background-color:#E1EA35;
@@ -103,24 +106,24 @@ input{
     text-align: center;
     border-radius: 0.5em;
 }
-.noaccount{
+#nologin .noaccount{
     margin-top: 30%;
 }
-#create{
+#nologin #create{
     background-color: #E1EA35;
     width: 50%;
 }
-h3{
+#nologin h3{
     color:#381DFC;
     font-family: 'Crimson Text', serif;
 
 }
 
-.btn{
+#nologin .btn{
     color: white;
     text-decoration: none;
 }
-.btn {
+#nologin .btn {
     padding: 14px 20px;
     border-radius: 0.5em;
     display: inline-block;
@@ -133,10 +136,10 @@ h3{
     width: 30%;
     font-family: 'Crimson Text', serif;
 }
-.btn:hover {
+#nologin .btn:hover {
     opacity: 0.8;
 }
-.modalpop {
+#nologin .modalpop {
     position: fixed;
     padding: 10px;
     width: 500px;
@@ -156,17 +159,17 @@ h3{
     flex-direction: column;
     align-items: center;
 }
-#name, #email, #pssw {
+#nologin #name, #email, #pssw {
     width: 60%;
     margin: 10px 0px;
 }
 
-.modalpop:target {
+#nologin .modalpop:target {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
 }
-.modalpop .close {
+#nologin .modalpop .close {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -177,10 +180,10 @@ h3{
     line-height: 1.5;
     font-weight: 700;
 }
-.modalpop .close:hover {
+#nologin .modalpop .close:hover {
     color: #44ABF8;
 }
-.closepop {
+#nologin .closepop {
     background-color: rgba(0,0,0,.8);
     cursor: default;
     position: fixed;
@@ -192,62 +195,68 @@ h3{
     visibility: hidden;
     transition: opacity .5s, visibility 0s linear .5s;
 }
-.modalpop:target + .closepop {
+#nologin .modalpop:target + .closepop {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
 }
 /*-----------------------------------------------------------*/
-footer {
+#nologin footer {
     display:flex;
     background-color: #381DFC;
     height: 60px;
     width: 100%;
     justify-content: center;
 }
-#footer{
+#nologin #footer{
     color: white;
 }
 /*-Media Queries---------------------------------------------*/
 @media (max-width:860px){
-    #h2{
+    #nologin #h2{
         font-size: 20px;
     }
 }
 @media (max-width:800px){
-    body{
+    #nologin {
         background-color: #381DFC;
     }
-    nav{
+    #nologin nav{
         visibility: hidden;
     }
-    h1{
+    #nologin h1{
         color: white;
         font-size: 40px;
     }
-    p{
+    #nologin p{
         color: white;
         font-size: 18px;
         margin: 20px;
         text-align: center;
     }
-    .formscontainer{
+    #nologin .formscontainer{
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
         width: 70%;
     }
-    .signin, .signup{
+    #nologin .signin {
         width:90%;
         background-color: white;
     }
-    .modalpop{
+
+    #nologin .signup{
+        width:90%;
+        background-color: white;
+    }
+
+    #nologin .modalpop{
         width: 50%;
     }
-    h2{
+    #nologin h2{
         color: #44ABF8;
     }
-    .btn{
+    #nologin .btn{
         background-color:rgb(101,280,231);
     }
 }

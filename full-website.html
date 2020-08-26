@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tello</title>
 
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
     <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+     <!-- SORTABLE -->
+     <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
     <!-- CUSTOM CODE -->
     <link rel="stylesheet" href="list.css">
@@ -75,9 +78,9 @@
                     
                     </div>
                     
-                    <footer>
+                    <!-- <footer>
                         <p id="footer">All rights reserved @Tello blah blah G.S</p>
-                    </footer>
+                    </footer> -->
         </div>
 
         <!-- LOGGED IN PAGE -->
@@ -90,8 +93,8 @@
                             <span></span>
                             <ul id="menu">
                                 <li class="menuoptions"><a class="menulist" href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a></li>
-                                <li class="menuoptions"><a class="menulist" href="#">Home</a></li>
-                                <li class="menuoptions"><a class="menulist" href="#">Boards</a></li>
+                                <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Home</a></li>
+                                <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Boards</a></li>
                                 <li class="menuoptions" v-on:click="handleLogOut"><a class="menulist" href="#">Sign Out</a></li>
                             </ul>
                         </nav>
@@ -99,20 +102,8 @@
                     </header>
                     
                     
-                    <!-- <div class="all_boards">
-                        <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
-                        <div class="placeholders">
-                            <div v-for="board of boards">
-                                {{board.board_name}}
-                            </div>
-                            <div id="placeholder1"></div>
-                            <div id="placeholder2"></div>
-                            <div id="placeholder3"></div>
-                        </div>
-                    </div> -->
-                    
                     <!-- ALL BOARDS -->
-                    <div v-if="!boardSingle">
+                    <div id="logged-in-boards" v-if="!boardSingle">
                             <div class="add_board">
                                 <p class="add_board_msg">+ Create a New Board</p>
                                 <input class="add_board_ip" type="text" placeholder="Add Board Title" v-model="boardName">
@@ -121,39 +112,47 @@
                             </div>
                             <div class="all_boards">
                                 <div class="placeholders" v-for="board of boards">
-                                    <div class="placeholder1" v-bind:id="board.id" v-on:click="showBoard">
+                                    <div class="placeholder1" v-bind:id="board.id">
                                         {{board.board_name}}
-                                        <button>update</button>
-                                        <button>delete</button>
+                                        <a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="board.id">Edit</a>
+                                        <button v-on:click="deleteBoard" v-bind:id="board.id">delete</button>
+                                        <button v-on:click="showBoard" v-bind:id="board.id">items</button>
                                     </div>
                                     <!-- v-for="list of allLists" -->
                                     <!-- :class="board.id == list.board_id? list_id : null" -->
                                 </div>
                             </div>
+                            <div id="popup" class="modalpop">
+                                <a href="#" class="close">&times;</a>
+                                <input type="text" placeholder="Edit Board" id="edit_ip" required>
+                                <button type="submit" id="save_edit">Edit</button>
+                            </div>
+                            <a href="#" class="closepop"></a>
                     </div>
 
                     <!-- LISTS IN BOARD -->
-                    <div class="one_board" v-if="boardSingle">
+                    <div id="logged-in-list" class="one_board" v-if="boardSingle">
                         <div class="current_board"> {{boards}} </div>
                         <div class="add_list">
                             <input class="add_list_ip" type="text" placeholder="Add List Title">
                             <button class="add_list_btn" v-on:click="createList">Add List</button>
                         </div>
                         
-                        <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
-                        <script>
-                            $(document).ready(function() {
-                                const example2Left = document.getElementById('all_lists_left');
-                                const example2Right = document.getElementById('all_lists_right');
-                                new Sortable(example2Left, {
-                                    group: 'shared', // set both lists to same group animation: 150
+                        <!-- <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script> -->
+
+                        <!-- <script defer>
+                                $(document).ready(function() {
+                                    const example2Left = document.getElementById('all_lists_left');
+                                    const example2Right = document.getElementById('all_lists_right');
+                                    new Sortable(example2Left, {
+                                        group: 'shared', // set both lists to same group animation: 150
+                                    });
+                                    new Sortable(example2Right, {
+                                        group: 'shared',
+                                        animation: 150
+                                    });
                                 });
-                                new Sortable(example2Right, {
-                                    group: 'shared',
-                                    animation: 150
-                                });
-                            });
-                        </script>
+                            </script> -->                        
                         
                         <div class="page-content page-container" id="page-content">
                             <div class="padding">
@@ -223,16 +222,20 @@
                             </div>
                         </div>
                         
-                        <footer></footer>
+                        <!-- <footer>
+                            <p id="footer">All rights reserved @Tello blah blah G.S</p>
+                        </footer> -->
                         <div id="popup" class="modalpop">
                             <a href="#" class="close">&times;</a>
                             <input type="text" placeholder="Edit Item" id="edit_ip" required>
                             <button type="submit" id="save_edit">Edit</button>
                         </div>
                         <a href="#" class="closepop"></a>
-                </div>
-                    
+                </div>      
         </div>
+        <footer>
+            <p id="footer">All rights reserved @Tello blah blah G.S</p>
+        </footer>
     </div>
 </body>
 </html>

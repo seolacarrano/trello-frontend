@@ -16,13 +16,15 @@ const app = new Vue ({
         boards: [],
         newBoard: "",
         boardName:"",
-        boardID: 0,
+        boardID: "",
         // listResponse: false,
         allLists: [],
         listInput: "",
         listID: 0,
         allItems: [],
-        input:{}
+        input:{},
+        itemID: 0,
+        updatingItem: ""
     },
     methods: {
             handleLogin: function() {
@@ -37,16 +39,14 @@ const app = new Vue ({
             })
             .then((response) => response.json())
             .then((data) => {
-                if (data.error) {
-                    alert("incorrect username and password")
-                } else {
-                    this.user = data.user;
-                    this.token = data.token;
-                    this.loggedin = true;
-                    this.getBoards()
-                    this.loginPW = ""
-                    this.loginUN = ""
-                }
+                // console.log(data)
+                this.user = data.user;
+                // console.log(this.user)
+                this.token = data.token;
+                this.loggedin = true;
+                this.getBoards()
+                this.loginPW = ""
+                this.loginUN = ""
             });
         },
         handleLogOut: function() {
@@ -72,8 +72,6 @@ const app = new Vue ({
                 alert("sign up successful");
             };
             });
-            this.createUN = ""
-            this.createPW = ""
         },
         getBoards: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
@@ -86,14 +84,14 @@ const app = new Vue ({
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 this.boards = data
             })
         },
         showBoard: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
             this.boardID = e.target.id
-            console.log(this.boardID, e.target.id)
+            // console.log(this.boardID, e.target.id)
             fetch(`${URL}/boards/${e.target.id}`, {
                 method: "get",
                 headers: {
@@ -103,7 +101,7 @@ const app = new Vue ({
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 this.boardSingle = true
                 this.boards = data.board_name
                 console.log(this.boards)
@@ -113,7 +111,10 @@ const app = new Vue ({
                 this.showItems()
             })
         },
-       
+        showAllBoards: function() {
+            this.boardSingle = false;
+            this.getBoards()
+        },
         createBoard: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
             const newBoard = {board_name: this.boardName}
@@ -130,10 +131,26 @@ const app = new Vue ({
                 this.boardSingle = false
                 this.getBoards()
             })
+            this.boardName = "";
+        },
+        deleteBoard: function(e){
+            this.boardID = e.target.id
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const board = {board_name: this.boardInput}
+            fetch(`${URL}/boards/${this.boardID}`,{
+                    method: "delete",
+                    headers: {
+                        Authorization: `bearer  ${this.token}`  
+                    }
+            })
+            .then(response => {
+                this.getBoards()
+            })
+
+            // this.getBoards()
         },
         showList: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
-            console.log(this.boardID)
             fetch(`${URL}/boards/${this.boardID}/lists`, {
                 method: "get",
                 headers: {
@@ -143,11 +160,9 @@ const app = new Vue ({
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 this.boardSingle = true
                 if (!data.response){
                     this.allLists = data
-                    console.log(this.allLists)
                 }
             })
         },
@@ -171,9 +186,7 @@ const app = new Vue ({
         createItem: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
             this.listID = e.target.id
-            console.log(this.listID)
             const itemInput = this.input[this.listID]
-            console.log(itemInput)
             const item = {item_name: itemInput}
             fetch(`${URL}/boards/${this.boardID}/lists/${e.target.id}/items`, {
                 method: "post",
@@ -201,7 +214,52 @@ const app = new Vue ({
             .then(response => response.json())
             .then(data => {
               this.allItems = data
-              console.log(this.allItems)
+            })
+        },
+        editItem: function(e){
+            this.itemID = e.target.id
+            this.listID = e.target.getAttribute('id2')
+            const item = this.allItems.find(item => {
+                return item.id == this.itemID
+            })
+            this.updatingItem = item.item_name
+        },
+        updateItem: function(e){
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            // this.listID = e.target.id
+            // this.listID = this["list.id"]
+            // console.log(this.listID)
+            // console.log(this.itemID)
+            const changeItem = {item_name: this.updatingItem}
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
+                method: "put",
+                headers: {
+                    Authorization: `bearer ${this.token}`
+                },
+                body: JSON.stringify(changeItem)
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (!data.response){
+                this.showItems()
+            }
+            })
+        },
+        deleteItem: function(e){
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            this.itemID = e.target.id
+            this.listID = e.target.getAttribute('id2')
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
+                method: "delete",
+                headers: {
+                    Authorization: `bearer ${this.token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (!data.response){
+                this.showItems()
+            }
             })
         }
     }

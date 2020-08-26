@@ -6,38 +6,38 @@ body {
     padding: 0;
 }
 
-#menu{
+#logged-in-list #menu{
     font-family: 'Alata', sans-serif;
     display: flex;
     flex-direction: row;
     align-items:center ;
 }
 
-#logo {
+#logged-in-list #logo {
     padding-top: 10px;
     display:flex ;
 }
 
-a {
+#logged-in-list a {
     text-decoration: none;
     color: #44ABF8;
 }
 
-ul{
+#logged-in-list ul{
     list-style-type: none;
 }
 
-li{
+#logged-in-list li{
     margin-right: 20px ;
     font-size: 20px;
 }
 
-#toggle{
+#logged-in-list #toggle{
     visibility: hidden;
 }
 
 
-.current_board{
+#logged-in-list .current_board{
     height: 30px;
     width: 170px;
     background-color: #381DFC;
@@ -56,7 +56,7 @@ li{
     width: 200px;
 }
 
-.add_list_btn{
+#logged-in-list .add_list_btn{
     background-color: #381DFC;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
     font-family: 'Crimson Text', serif;
@@ -70,29 +70,29 @@ li{
 
 
 /*-------------------------------------drag and drop----------------------------------------*/
-.flex {
+#logged-in-list .flex {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto
 }
 
 @media (max-width:991.98px) {
-    .padding {
+    #logged-in-list .padding {
         padding: 1.5rem
     }
 }
 
 @media (max-width:767.98px) {
-    .padding {
+    #logged-in-list .padding {
         padding: 1rem
     }
 }
 
-.padding {
+#logged-in-list .padding {
     padding: 10px;
 }
 
-.card {
+#logged-in-list .card {
     background: #fff;
     border-width: 0;
     border-radius: .25rem;
@@ -112,7 +112,7 @@ li{
     border-radius: .25rem
 }
 
-.list-item {
+#logged-in-list .list-item {
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -122,31 +122,31 @@ li{
     word-wrap: break-word
 }
 
-.list-item.block .media {
+#logged-in-list .list-item.block .media {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0
 }
 
-.list-item.block .list-content {
+#logged-in-list .list-item.block .list-content {
     padding: 1rem
 }
 
 
-.flex {
+#logged-in-list .flex {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto
 }
 
-.text-color {
+#logged-in-list .text-color {
     color: #5e676f
 }
 
-.text-sm {
+#logged-in-list .text-sm {
     font-size: .825rem
 }
 
-.h-1x {
+#logged-in-list .h-1x {
     height: 1.25rem;
     overflow: hidden;
     display: -webkit-box;
@@ -154,11 +154,11 @@ li{
     -webkit-box-orient: vertical
 }
 
-.no-wrap {
+#logged-in-list .no-wrap {
     white-space: nowrap
 }
 
-.list-row .list-item {
+#logged-in-list .list-row .list-item {
     -ms-flex-direction: row;
     flex-direction: row;
     -ms-flex-align: center;
@@ -166,7 +166,7 @@ li{
     padding: .75rem .625rem
 }
 
-.list-item {
+#logged-in-list .list-item {
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -177,17 +177,17 @@ li{
     background-color: #E1EA35;
 }
 
-.list-row .list-item>* {
+#logged-in-list .list-row .list-item>* {
     padding-left: .625rem;
     padding-right: .625rem
 }
 
-.dropdown {
+#logged-in-list .dropdown {
     position: relative
 }
 
-a:focus,
-a:hover {
+#logged-in-list a:focus,
+#logged-in-list a:hover {
     text-decoration: none
 }
 
@@ -196,10 +196,14 @@ a:hover {
 /*-------------------------------------footer----------------------------------------*/
 footer {
     background-color: #381DFC;
-    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 40px;
     width: 100%;
     margin: 0 auto;
-    position:fixed;
+    position: fixed;
     bottom: 0;
 }
 
@@ -207,35 +211,35 @@ footer {
 /*-------------------------------------media query----------------------------------------*/
 @media (max-width:800px){
     /*Hamburger Menu*/
-    #menu{
+    #logged-in-list #menu{
         display: flex;
         flex-direction: column;
     }
 
-    .home_link{
+    #logged-in-list .home_link{
         justify-content: flex-end;
     }
 
-    #toggle{
+    #logged-in-list #toggle{
         visibility: visible;
     }
 
-    #logo{
+    #logged-in-list #logo{
         margin-bottom: 20px;
     }
 
-    a{
+    #logged-in-list a{
         text-decoration:none;
         color: #44ABF8;
         transition:#44ABF8 0.3s ease ;
         margin-left: 10px;
     }
 
-    a:hover {
+    #logged-in-list a:hover {
         color: #E1EA35;
     }
 
-    #menutoggle{
+    #logged-in-list #menutoggle{
         display:block;
         position: relative;
         top: 30px;
@@ -243,7 +247,7 @@ footer {
         z-index: 1;
     }
 
-    #menutoggle input{
+    #logged-in-list #menutoggle input{
         display: block;
         width: 50px;
         height:50px;
@@ -255,7 +259,7 @@ footer {
         z-index: 2;
     }
 
-    #menutoggle span{
+    #logged-in-list #menutoggle span{
         display: block;
         width: 32px;
         height: 4px;
@@ -266,30 +270,30 @@ footer {
         transform-origin: 1px -2px;
     }
 
-    #menutoggle span:first-child{
+    #logged-in-list #menutoggle span:first-child{
         transform-origin: 0% 0% ;
     }
 
-    #menutoggle span:nth-last-child(2){
+    #logged-in-list #menutoggle span:nth-last-child(2){
         transform-origin: 0% 100% ;
     }
 
-    #menutoggle input:checked ~ span{
+    #logged-in-list #menutoggle input:checked ~ span{
         opacity: 1;
         transform: rotate(45deg) translate(-2px, -1px);
         background-color: #381DFC;
     }
 
-    #menutoggle input:checked ~ span:nth-last-child(3){
+    #logged-in-list #menutoggle input:checked ~ span:nth-last-child(3){
         opacity: 0;
         transform: rotate(0deg) scale(0.2, 0.2);
     }
 
-    #menutoggle input:checked ~span:nth-last-child(2){
+    #logged-in-list #menutoggle input:checked ~span:nth-last-child(2){
         transform: rotate(-45deg) translate(0, -1px);
     }
 
-    #menu{
+    #logged-in-list #menu{
         position: absolute;
         width: 250px;
         height: 100vh;
@@ -302,18 +306,18 @@ footer {
         transition: transform 0.5s;
     }
 
-    menu, li{
+    #logged-in-list menu, li{
         position: relative;
         padding: 10px 0;
         font-size: 30px;
         display: block;
     }
 
-    #menutoggle input:checked ~ ul{
+    #logged-in-list #menutoggle input:checked ~ ul{
         transform: translate(0,0)
     }
 
-    .current_board {
+    #logged-in-list .current_board {
         margin-top: 50px;
     }
 

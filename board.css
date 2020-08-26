@@ -27,18 +27,18 @@ li{
 #toggle{
     visibility: hidden;
 }
-#home {
+#logged-in-boards #home {
     padding-left: 1100px;
     padding-bottom: 10px;
 }
 
-.add_board {
+#logged-in-boards .add_board {
     padding-bottom: 30px;
     margin-top: 50px;
     padding-left: 6px;
 }
 
-.add_board_msg {
+#logged-in-boards .add_board_msg {
     margin-left: 35px;
     font-size: larger;
 }
@@ -49,7 +49,7 @@ li{
     border-style: dotted;
     width: 200px;
 }
-.add_board_btn {
+#logged-in-boards .add_board_btn {
     background-color: #381DFC;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Crimson Text', serif;
@@ -58,7 +58,7 @@ li{
     cursor: pointer;
 }
 
-.all_boards {
+#logged-in-boards .all_boards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -66,12 +66,12 @@ li{
     padding-bottom: 30px;
 }
 
-.all_boards_msg {
+#logged-in-boards .all_boards_msg {
     margin-left: 45px;
     font-size: larger;
 }
 
-.placeholders {
+#logged-in-boards .placeholders {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -79,7 +79,7 @@ li{
     padding-right: 40px;
 }
 
-.placeholder1{
+#logged-in-boards .placeholder1{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,19 +89,19 @@ li{
     background-color: rgb(101,280,231);
 }
 
-#placeholder2{
+#logged-in-boards #placeholder2{
     height: 300px;
     width: 300px;
     background-color: #E1EA35;
 }
 
-#placeholder3{
+#logged-in-boards #placeholder3{
     height: 300px;
     width: 300px;
     background-color:  #44ABF8;
 }
 
-footer {
+#logged-in-boards footer {
     background-color: #381DFC;
     height: 60px;
     width: 100%;
