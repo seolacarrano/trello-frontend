@@ -27,7 +27,10 @@ const app = new Vue ({
         updatingItem: "",
         updateBoardName: "",
         updateListName: "",
-        listName: ""
+        listName: "",
+        dragItemListID: 0,
+        dragItemID: 0,
+        dragItemContent:"",
     },
     methods: {
             handleLogin: function() {
@@ -193,6 +196,7 @@ const app = new Vue ({
                 this.boardSingle = true
                 if (!data.response){
                     this.allLists = data
+                    this.showItems()
                 }
             })
             // console.log(this.allLists);
@@ -246,10 +250,33 @@ const app = new Vue ({
                 this.refreshLists()
             })
         },
+        updateList: function(e){
+            this.listID = e.target.attributes[3].value;
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const updateList = {list_name: this.updateListName}
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
+                method: "put",
+                headers: {
+                    "Content-Type" : "application/json",
+                    Authorization: `bearer ${this.token}`
+                },
+                    body: JSON.stringify(updateList)
+            })
+            .then(response => {
+                this.refreshLists();
+                })
+            this.updateListName=""
+        },
+        assignListEditButton: function(e) {
+            const editButton = document.querySelector('.list-edit')
+            editButton.setAttribute("list", e.target.id)
+        },
         createItem: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
             this.listID = e.target.id
+            console.log(this.listID)
             const itemInput = this.input[this.listID]
+            console.log(itemInput)
             const item = {item_name: itemInput}
             fetch(`${URL}/boards/${this.boardID}/lists/${e.target.id}/items`, {
                 method: "post",
@@ -277,28 +304,8 @@ const app = new Vue ({
             .then(response => response.json())
             .then(data => {
               this.allItems = data
+              console.log(this.allItems);
             })
-        },
-        updateList: function(e){
-            this.listID = e.target.attributes[3].value;
-            const URL = this.prodURL ? this.prodURL : this.devURL
-            const updateList = {list_name: this.updateListName}
-            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
-                method: "put",
-                headers: {
-                    "Content-Type" : "application/json",
-                    Authorization: `bearer ${this.token}`
-                },
-                    body: JSON.stringify(updateList)
-            })
-            .then(response => {
-                this.refreshLists();
-                })
-            this.updateListName=""
-        },
-        assignListEditButton: function(e) {
-            const editButton = document.querySelector('.list-edit')
-            editButton.setAttribute("list", e.target.id)
         },
         editItem: function(e){
             this.itemID = e.target.id
@@ -315,19 +322,24 @@ const app = new Vue ({
             // console.log(this.listID)
             // console.log(this.itemID)
             const changeItem = {item_name: this.updatingItem}
+            console.log(changeItem);
+            console.log(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`)
             fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
                 method: "put",
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `bearer ${this.token}`
                 },
                 body: JSON.stringify(changeItem)
             })
             .then(response => response.json())
             .then(data => {
-              if (!data.response){
-                this.showItems()
-            }
+                if (!data.response){
+                    this.showItems()
+                    console.log("hello")
+                }
             })
+            this.updatingItem = ""
         },
         deleteItem: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
@@ -344,6 +356,56 @@ const app = new Vue ({
               if (!data.response){
                 this.showItems()
             }
+            })
+        },
+         // NEED TO GRAB THE TEXT AND DIV
+         dragItem: function(event){
+            console.log(event.target.firstChild.firstChild)
+            console.log(event.target.firstChild.firstChild.innerHTML)
+            // console.log(event.target.firstChild.firstChild.firstChild)
+            this.dragItemID = event.target.getAttribute('id2')
+            this.dragItemListID = event.target.id
+            console.log(this.dragItemListID)
+            console.log(this.dragItemID)
+            // return draggedItem
+            this.dragItemContent = event.target.firstChild.firstChild.innerHTML || event.target.firstChild.innerHTML
+        },
+        allowDrop: function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            console.log(5)
+        },
+        dropItem: function(event){
+            console.log(10)
+            event.preventDefault()
+            event.stopPropagation();
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const draggingItem = {item_name: this.dragItemContent}
+            console.log(draggingItem)
+            console.log(event.target)
+            console.log(event.target.getAttribute('listID'))
+            console.log(this.boardID)
+            fetch(`${URL}/boards/${this.boardID}/lists/${event.target.getAttribute('listID')}/items`, {
+                // e.target will be the container that the item is dropped in
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `bearer ${this.token}`
+                },
+                body: JSON.stringify(draggingItem)
+            })
+            .then (response => response.json)
+            .then (data => {
+                fetch(`${URL}/boards/${this.boardID}/lists/${this.dragItemListID}/items/${this.dragItemID}`, {
+                    method: "delete",
+                    headers: {
+                        Authorization: `bearer ${this.token}`
+                    }
+                })
+                .then (response => response.json)
+                .then(data => {
+                    this.showItems()
+                })
             })
         }
     }

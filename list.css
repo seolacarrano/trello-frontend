@@ -70,6 +70,11 @@ body {
 
 
 /*-------------------------------------drag and drop----------------------------------------*/
+#all_lists_right {
+    /* padding: 50px 0 50px 0; */
+    min-height: 100px;
+}
+
 #logged-in-list .flex {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -175,6 +180,7 @@ body {
     min-width: 0;
     word-wrap: break-word;
     background-color: #E1EA35;
+    margin-bottom: 10px;
 }
 
 #logged-in-list .list-row .list-item>* {

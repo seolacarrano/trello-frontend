@@ -168,14 +168,20 @@
                                                         <div class="name_of_list">{{list.list_name}}</div>
                                                         <button v-bind:id="list.id" v-on:click="deleteList">Delete</button>
                                                         <button><a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a></button>
+
+                                                        <!-- KRISTY ADDITION -->
                                                         <div class="add_item">
-                                                            <input class="add_item_ip" type="text" placeholder="Add a new item">
-                                                            <button class="add_item_btn">Add Item</button>
+                                                            <input class="add_item_ip" type="text" placeholder="Add a new item" v-model="input[list.id]">
+                                                            <button class="add_item_btn" v-bind:id="list.id" v-on:click="createItem">Add Item</button>
                                                         </div>
-                                                        <div id="all_lists_left">
-                                                            <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
-                                                                <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">item1</a>
-                                                                </div>
+
+                                                        <!-- ITEMS -->
+                                                        <!-- ITEMS -->
+                                                        <div id="all_lists_right" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop">
+                                                                <!-- Add item id and list id to delete this item from the current list -->
+                                                                <div v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop" v-for="item of allItems" v-if="list.id == item.list_id" class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
+                                                                    <div class="flex" v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop"> <a href="#" class="item-author text-color" data-abc="true" v-bind:itemName="item.item_name">{{item.item_name}}</a></div>
+                                                                <!-- THIS IS WHERE YOU NEED TO ADD EDIT AND DELETE  -->
                                                                 <div>
                                                                     <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                                                                         <circle cx="12" cy="12" r="1"></circle>
@@ -183,11 +189,42 @@
                                                                         <circle cx="12" cy="19" r="1"></circle>
                                                                     </svg> </a>
                                                                         <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                                            <a href="#popup" class="dropdown-item edit" data-abc="true">Edit</a>
-                                                                            <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
+                                                                            <a class="dropdown-item edit" data-abc="true" data-toggle="modal" data-target="#exampleModal" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="editItem">Edit</a>
+                                                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                                                Launch demo modal
+                                                                            </button> -->
+                                                                            
+                                                                            <!-- Modal -->
+                                                                            
+                                                                                <!-- <button type="submit" v-bind:id="list.id" v-on:click="updateItem">Submit</button>
+                                                                            </div>
+                                                                            <a href="#" class="closepop"></a> -->
+                                                                            
+                                                                            <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="deleteItem">Delete</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                        <input type="text" v-model="updatingItem">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-primary" v-on:click="updateItem" data-dismiss="modal">Update Item</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- END OF MODAL -->
                                                             </div>
                                                         </div>
                                                     </div>
