@@ -182,7 +182,6 @@ const app = new Vue ({
             this.updateBoardName = "";
         },
         showList: function(e){
-            this.boardID = e.target.id;
             const URL = this.prodURL ? this.prodURL : this.devURL
             fetch(`${URL}/boards/${this.boardID}/lists`, {
                 method: "get",
@@ -201,6 +200,7 @@ const app = new Vue ({
             })
             // console.log(this.allLists);
             // console.log(document.querySelector(`div[id="${this.boardID}"]`).text)
+            console.log(this.boards)
         },
         refreshLists: function (){
             const URL = this.prodURL ? this.prodURL : this.devURL
@@ -322,8 +322,6 @@ const app = new Vue ({
             // console.log(this.listID)
             // console.log(this.itemID)
             const changeItem = {item_name: this.updatingItem}
-            console.log(changeItem);
-            console.log(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`)
             fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}/items/${this.itemID}`, {
                 method: "put",
                 headers: {
