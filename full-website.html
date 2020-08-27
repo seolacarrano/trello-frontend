@@ -124,7 +124,7 @@
                             </div>
                             <div id="popup" class="modalpop">
                                 <a href="#" class="close">&times;</a>
-                                <input type="text" placeholder="Edit Board" id="edit_ip" required v-model="updateBoardName">
+                                <input type="text" placeholder="Edit Board" class="edit_ip" required v-model="updateBoardName">
                                 <button type="submit" class="board-edit" id="save_edit" v-on:click="updateBoard">Edit</button>
                             </div>
                             <a href="#" class="closepop"></a>
@@ -230,9 +230,16 @@
                         <!-- <footer>
                             <p id="footer">All rights reserved @Tello blah blah G.S</p>
                         </footer> -->
+                        <!-- <div id="popup" class="modalpop">
+                            <a href="#" class="close">&times;</a>
+                            <input type="text" placeholder="Edit Item" class="edit_ip">
+                            <button type="submit" id="save_edit">Edit</button>
+                        </div>
+                        <a href="#" class="closepop"></a> -->
+
                         <div id="popup" class="modalpop">
                             <a href="#" class="close">&times;</a>
-                            <input type="text" placeholder="Edit Item" id="edit_ip" required v-model="updateListName">
+                            <input type="text" placeholder="Edit List" class="edit_ip" v-model="updateListName">
                             <button type="submit" id="save_edit" class="list-edit" v-on:click="updateList">Edit</button>
                         </div>
                         <a href="#" class="closepop"></a>

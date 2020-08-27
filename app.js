@@ -43,13 +43,17 @@ const app = new Vue ({
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data)
-                this.user = data.user;
-                // console.log(this.user)
-                this.token = data.token;
-                this.loggedin = true;
-                this.getBoards()
-                this.loginPW = ""
-                this.loginUN = ""
+                if (data.error) {
+                    alert("invalid username or password")
+                } else {
+                    this.user = data.user;
+                    // console.log(this.user)
+                    this.token = data.token;
+                    this.loggedin = true;
+                    this.getBoards()
+                    this.loginPW = ""
+                    this.loginUN = ""
+                }
             });
         },
         handleLogOut: function() {
@@ -275,15 +279,10 @@ const app = new Vue ({
               this.allItems = data
             })
         },
-        assignListEditButton: function(e) {
-            const editButton = document.querySelector('.list-edit')
-            editButton.setAttribute("list", e.target.id)
-        },
         updateList: function(e){
             this.listID = e.target.attributes[3].value;
             const URL = this.prodURL ? this.prodURL : this.devURL
-            const updateList = {board_name: this.updateListName}
-            console.log(updateList);
+            const updateList = {list_name: this.updateListName}
             fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
                 method: "put",
                 headers: {
@@ -295,7 +294,12 @@ const app = new Vue ({
             .then(response => {
                 this.refreshLists();
                 })
-            },
+            this.updateListName=""
+        },
+        assignListEditButton: function(e) {
+            const editButton = document.querySelector('.list-edit')
+            editButton.setAttribute("list", e.target.id)
+        },
         editItem: function(e){
             this.itemID = e.target.id
             this.listID = e.target.getAttribute('id2')

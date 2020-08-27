@@ -353,7 +353,7 @@ footer {
     align-items: center;
 }
 
-#edit_ip {
+.edit_ip {
     width: 60%;
     margin: 10px 0px;
 }
