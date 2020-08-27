@@ -24,7 +24,10 @@ const app = new Vue ({
         allItems: [],
         input:{},
         itemID: 0,
-        updatingItem: ""
+        updatingItem: "",
+        dragItemListID: 0,
+        dragItemID: 0,
+        dragItemContent:"",
     },
     methods: {
             handleLogin: function() {
