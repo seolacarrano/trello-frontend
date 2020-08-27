@@ -1,14 +1,17 @@
 # Project Overview
 
+## Project Link
+- TBD
+
 ## Project Schedule
 
 |  Day | Deliverable | Status
 |---|---| ---|
 |Day 1| Project Description | Complete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
-|Day 2| Working RestAPI | Incomplete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Day 4| MVP & Bug Fixes | Incomplete
+|Day 2| Working RestAPI | Complete
+|Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
+|Day 4| MVP & Bug Fixes | Complete
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
@@ -35,14 +38,14 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 ### MVP/PostMVP - 5min
 
 #### MVP
-- Create function to request data and populate
-- Create function to create new data
-- Create function to delete data
-- Create function to edit data
-- Build UI incorporating functions 
+- Create function to request data and populate for all pages
+- Create function to create new data for all pages
+- Create function to delete data for all pages
+- Create function to edit data on all pages
+- Build UI incorporating functions with Vue
 - Make hamburger menu
 - Make it responsive to different screen sizes (mobile, tablet, and desktop)
-- Deploy API and fronted application
+- Render API on frontend application
 
 #### PostMVP 
 - Make hover effect
@@ -54,31 +57,47 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 ## Functional Components
 
 #### MVP
-| letter | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |:---: |
-| A | Create function to request data and populate | H | 2hrs | -hr | -hr|
-| B | Create function to create new data | H | 2hrs | -hr | -hr|
-| C | Create function to delete data | H | 2hrs | -hr | -hr|
-| D | Create function to edit data | H | 2hrs | -hr | -hr|
-| E | Vue Implementation | H | 4hrs | -hr | -hr|
-| F | Vue Testing | H | 4hrs | -hr | -hr|
-| G | Build login page structure | M | 3hrs | 3hrs | 3hrs |
-| H | Build board page structure | M | 3hrs | 3hrs | 3hrs |
-| I | Build list page structure | M | 2hrs | 2hrs | 3hrs |
-| J | Drag and drop on list page | H | 4hrs | -hr | -hr |
-| K | Make hamburger menu | H | 1hr| -hr | -hr |
-| L | Media query | H | 2hrs | -hr | -hr|
-| M | Deployment | H | 2hrs| -hr | -hr |
+
+| Letter | Component | Priority | Estimated Time | Time Invested |
+| --- | :---: |  :---: | :---: | :---: |
+| A | Wireframing | H | 1hrs | -hr |
+| B | Hamburger Menu | H | 1hrs | -hr |
+| C | Login HTML | H | 3hrs | -hr |
+| D | Boards HTML | H | 3hrs | -hr |
+| E | Lists HTML | H | 2hrs | -hr |
+| F | Login CSS | H | 2hrs | -hr |
+| G | Boards CSS | H | 4hrs | -hr |
+| H | Lists CSS | H | 4hrs | -hr |
+| I | Login Media Queries | H | 4hrs | -hr |
+| J | Boards Media Queries | H | 4hrs | -hr |
+| K | Lists Media Queries | H | 4hrs | -hr |
+| L | Lists Media Queries | H | 4hrs | -hr |
+| M | Vue Research | H | 4hrs | -hr |
+| N | Login/Logout Functions | M | 3hrs | 3hrs |
+| O | CRUD Functions for Boards | M | 3hrs | 3hrs |
+| P | CRUD Functions for Lists | M | 2hrs | 2hrs |
+| Q | CRUD Functions for Items | H | 4hrs | -hr |
+| R | Drag and Drop Items Functionality | H | 4hrs | -hr |
+| S | Login HTML/CSS Debugging | H | 1hr| -hr |
+| T | Login Javascript Debugging | H | 1hr| -hr |
+| U | Boards HTML/CSS Debugging | H | 1hr| -hr |
+| V | Boards Javascript Debugging | H | 1hr| -hr |
+| W | Lists HTML/CSS Debugging | H | 1hr| -hr |
+| X | Lists Javascript Debugging | H | 1hr| -hr |
+| Y | Items HTML/CSS Debugging | H | 1hr| -hr |
+| Z | Items Javascript Debugging | H | 2hrs | -hr |
+| AA | Blackbox Testing | H | 2hrs | -hr |
+| AB | Deployment | H | 2hrs| -hr |
 | Total | H | 33hrs| -hrs | -hrs |
 
 #### PostMVP
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Hover effect | L | 1hr | -hr | -hr|
-| Social media icons | L | 5hrs | -hr | -hr|
-| Add button shadow effects | L | 4hrs | -hr | -hr|
-| Change fonts | L | 1hr | -hr | -hr|
-| Total | H | 11hrs | -hrs | -hrs |
+| Letter | Component | Priority | Estimated Time | Time Invested |
+| --- | --- | :---: |  :---: | :---: |
+| AC | Hover effect | L | 1hr | -hr |
+| AD | Social media icons | L | 5hrs | -hr |
+| AE | Add button shadow effects | L | 4hrs | -hr |
+| AF | Change fonts | L | 1hr | -hr |
+| - | Total | - | 11hrs | -hrs | -hrs |
 
 ## Additional Libraries
 - [Vue](https://vuejs.org)
@@ -98,8 +117,3 @@ function reverse(string) {
 ## Issues and Resolutions
 **ERROR**: This will be added later                            
 **RESOLUTION**: This will be added later
-
-## Backend Worksheet
- - [backend](https://github.com/krislee/trello-clone/blob/dev-mvp/planning/project-worksheet%20copy.md)
-
-## Project Link
