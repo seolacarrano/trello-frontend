@@ -3,6 +3,8 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 }
 #menu{
     display: flex;
@@ -40,7 +42,10 @@ li{
 
 #logged-in-boards .add_board_msg {
     margin-left: 35px;
-    font-size: larger;
+    font-size: 30px;
+    font-family: 'Crimson Text', serif;
+    color:#585454;
+
 }
 .add_board_ip {
     margin-left: 35px;
@@ -51,11 +56,14 @@ li{
 }
 #logged-in-boards .add_board_btn {
     background-color: #381DFC;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Crimson Text', serif;
     color: white;
     height: 25px;
     cursor: pointer;
+    border-style: none;
+    border-radius: 2px;
+    height: 30px;
+    width: 90px;
 }
 
 #logged-in-boards .all_boards {
@@ -68,45 +76,62 @@ li{
 
 #logged-in-boards .all_boards_msg {
     margin-left: 45px;
-    font-size: larger;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    color:#585454;
+    margin-top:50px;
 }
-
 #logged-in-boards .placeholders {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 40px;   
 }
-
-#logged-in-boards .placeholder1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    width: 300px;
-    margin-top: 30px;
-    background-color: rgb(101,280,231);
-}
-
-#logged-in-boards #placeholder2{
-    height: 300px;
-    width: 300px;
+.container-for-placeholder{
     background-color: #E1EA35;
+    height: auto;
+    width: 340px;
+    border-radius: 8px;
+}
+.container-for-placeholder:hover {
+    opacity: 0.8;
+    background-color:#44ABF8;
+}
+#logged-in-boards .placeholder1{
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   width: auto;
+   height: 100px;
+   margin-top:20px;
+   font-size: 26px;
+   color:#585454;
+   font-family: 'Crimson Text', serif;
+}
+.container-for-buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.board-buttons{
+    border:none;
+    width:80px;
+    height: 40px;
+    background-color: white;
+    color:#585454;
+    padding:7px;
+    font-family: 'Crimson Text', serif;
+    margin: 20px;
+    border-radius: 3px;
+    text-align: center;
+}
+#logged-in-boards a{
+    text-decoration:none;
+}
+.board-buttons:hover {
+    background-color:rgb(101,280,231);
+    color:white;
 }
 
-#logged-in-boards #placeholder3{
-    height: 300px;
-    width: 300px;
-    background-color:  #44ABF8;
-}
-
-#logged-in-boards footer {
-    background-color: #381DFC;
-    height: 60px;
-    width: 100%;
-    margin: 0 auto;
-}
 /*-Media Queries---------------------------------------------*/
 @media (max-width:800px){
     /*Hamburger Menu*/
@@ -191,9 +216,9 @@ li{
     }
 
     #menu{
-        position: absolute;
+        position: fixed;
         width: 250px;
-        height: 100vh;
+        height:97.6%;
         margin: -100px 0 0 -60px;
         padding-top: 160px ;
         list-style: none;

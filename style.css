@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
 }
+.space-holder{
+    height: 100px;
+}
 
 #nologin #nav {
     background-color: #44ABF8;
@@ -21,12 +24,14 @@ body {
     text-align: center;
     color:#381DFC;
     font-family: 'Eczar', serif;
+    font-size:60px
 }
 
 #nologin p{
     text-align: center;
     color:#585454;
     font-family: 'Crimson Text', serif;
+    font-size:25px;
 }
 #nologin .formscontainer{
     width:100%;
@@ -37,10 +42,11 @@ body {
     justify-content: center;
     align-items: center;
 }
-#nologin h2{
+.h2{
     color:white;
     text-align: center;
     font-family: 'Eczar', serif;
+    padding: 0px 20px;
 }
 #nologin .signin{
     width:500px;
@@ -113,7 +119,7 @@ body {
     background-color: #E1EA35;
     width: 50%;
 }
-#nologin h3{
+.h3{
     color:#381DFC;
     font-family: 'Crimson Text', serif;
 
@@ -200,27 +206,15 @@ body {
     visibility: visible;
     transition-delay: 0s;
 }
-/*-----------------------------------------------------------*/
-#nologin footer {
-    display:flex;
-    background-color: #381DFC;
-    height: 60px;
-    width: 100%;
-    justify-content: center;
-}
-#nologin #footer{
-    color: white;
-}
 /*-Media Queries---------------------------------------------*/
-@media (max-width:860px){
-    #nologin #h2{
-        font-size: 20px;
-    }
-}
 @media (max-width:800px){
     #nologin {
         background-color: #381DFC;
     }
+    #nologin .h3{
+        font-size: 20px;
+    }
+
     #nologin nav{
         visibility: hidden;
     }
@@ -230,7 +224,7 @@ body {
     }
     #nologin p{
         color: white;
-        font-size: 18px;
+        font-size: 19px;
         margin: 20px;
         text-align: center;
     }
@@ -258,5 +252,39 @@ body {
     }
     #nologin .btn{
         background-color:rgb(101,280,231);
+    }
+}
+@media (max-width:420px){
+    #nologin .signin{
+        text-align:center;
+        margin-top: 20px;
+        height: 280px;
+    }
+    .h2{
+        font-size:20px;
+    }
+    .signup{
+        margin-top:50px;
+    }
+    #nologin .btn{
+        width:40%;
+    }
+    #nologin .containerup{
+        width: 80%;
+    }
+    #nologin .signup{
+        height: 260px ;
+    }
+
+}
+@media (max-width:370px){
+    #nologin .btn{
+        width:50%;
+    }
+    .h2{
+        font-size:16px;
+    }
+    #nologin p{
+        font-size:12px;
     }
 }

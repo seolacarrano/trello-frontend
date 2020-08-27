@@ -36,13 +36,14 @@
                         </nav>
                     </header>
                     <!-- HOMEPAGE -->
+                <div class="space-holder"></div>
                     <h1>Welcome to Tello</h1>
                     <p>A project management tool that will help you plan, manage and execute all your projects. </p>
                     <div class="formscontainer">
                         <!-- SIGN IN -->
                         <div class="signin">
                             <div class="containerup">
-                                <h2>SIGN IN</h2>
+                                <h2 class="h2">SIGN IN</h2>
                                 <form v-on:submit.prevent="handleLogin">
                                     <input type="email" placeholder="Enter Email" id="uname" required v-model="loginUN">
                                     <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
@@ -53,13 +54,13 @@
                         <!-- SIGN UP -->
                         <div class="signup">
                             <div class="noaccount">
-                                <h2 id="h2"> DON'T HAVE AN ACCOUNT? </h2>
+                                <h2 class="h2"> DON'T HAVE AN ACCOUNT? </h2>
                                 <div class="signupmodal">
                                     <a href="#popup" class="btn">Sign Up</a>
                                     <div id="popup" class="modalpop">
                                         <a href="#" class="close" id="close_x">&times;</a>
-                                        <h3>Sign up with</h3>
-                                        <h3>Or sign up using your email</h3>
+                                        <h3 class="h3">Sign up with</h3>
+                                        <h3 class="h3">Or sign up using your email</h3>
                                         <form v-on:submit.prevent="handleSignup">
                                             <!-- <input type="text" placeholder="Enter Name" id="name" required> -->
                                             <input type="email" placeholder="Email" id="email" required v-model="createUN">
@@ -72,6 +73,7 @@
                             </div>
                         </div>
                     </div>
+                <div class="space-holder"></div>
         </div>
 
         <!-- LOGGED IN PAGES -->
@@ -84,7 +86,7 @@
                             <span></span>
                             <span></span>
                             <ul id="menu">
-                                <li class="menuoptions"><a class="menulist" href="./index.html"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:30px;"></i></a></li>
+                                <li class="menuoptions"><a class="menulist"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:50px;"></i></a></li>
                                 <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Home</a></li>
                                 <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Boards</a></li>
                                 <li class="menuoptions" v-on:click="handleLogOut"><a class="menulist" href="#">Sign Out</a></li>
@@ -106,11 +108,15 @@
                             <!-- RENDERED BOARDS -->
                             <div class="all_boards">
                                 <div class="placeholders" v-for="board of boards">
-                                    <div class="placeholder1" v-bind:id="board.id">
-                                        {{board.board_name}}
-                                        <a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="board.id" v-on:click="assignEditButton">Edit</a>
-                                        <button v-on:click="deleteBoard" v-bind:id="board.id">delete</button>
-                                        <button v-on:click="showBoard" v-bind:id="board.id">lists</button>
+                                    <div class="container-for-placeholder">
+                                        <div class="placeholder1" v-bind:id="board.id">
+                                            {{board.board_name}}
+                                        </div>
+                                        <div class="container-for-buttons">
+                                            <a href="#popup" class="board-buttons" data-abc="true" v-bind:id="board.id" v-on:click="assignEditButton">EDIT</a>
+                                            <button class="board-buttons" v-on:click="deleteBoard" v-bind:id="board.id">DELETE</button>
+                                            <button class="board-buttons" v-on:click="showBoard" v-bind:id="board.id">LISTS</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
