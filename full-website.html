@@ -114,9 +114,9 @@
                                 <div class="placeholders" v-for="board of boards">
                                     <div class="placeholder1" v-bind:id="board.id">
                                         {{board.board_name}}
-                                        <a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="board.id">Edit</a>
+                                        <a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="board.id" v-on:click="assignEditButton">Edit</a>
                                         <button v-on:click="deleteBoard" v-bind:id="board.id">delete</button>
-                                        <button v-on:click="showBoard" v-bind:id="board.id">items</button>
+                                        <button v-on:click="showList" v-bind:id="board.id">lists</button>
                                     </div>
                                     <!-- v-for="list of allLists" -->
                                     <!-- :class="board.id == list.board_id? list_id : null" -->
@@ -124,8 +124,8 @@
                             </div>
                             <div id="popup" class="modalpop">
                                 <a href="#" class="close">&times;</a>
-                                <input type="text" placeholder="Edit Board" id="edit_ip" required>
-                                <button type="submit" id="save_edit">Edit</button>
+                                <input type="text" placeholder="Edit Board" id="edit_ip" required v-model="updateBoardName">
+                                <button type="submit" class="board-edit" id="save_edit" v-on:click="updateBoard">Edit</button>
                             </div>
                             <a href="#" class="closepop"></a>
                     </div>
@@ -134,9 +134,10 @@
                     <div id="logged-in-list" class="one_board" v-if="boardSingle">
                         <div class="current_board"> {{boards}} </div>
                         <div class="add_list">
-                            <input class="add_list_ip" type="text" placeholder="Add List Title">
+                            <input class="add_list_ip" type="text" placeholder="Add List Title" v-model="listInput">
                             <button class="add_list_btn" v-on:click="createList">Add List</button>
                         </div>
+                    
                         
                         <!-- <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script> -->
 
@@ -161,8 +162,12 @@
                                         <div class="container-fluid">
                                             <div class="list list-row card" id="sortable" data-sortable-id="0" aria-dropeffect="move">
                                                 <div class="row">
-                                                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-left">
-                                                        <div class="name_of_list">Name of List</div>
+                                                    
+                                                    <!-- LISTS -->
+                                                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-left" v-for="list in allLists">
+                                                        <div class="name_of_list">{{list.list_name}}</div>
+                                                        <button v-bind:id="list.id" v-on:click="deleteList">Delete</button>
+                                                        <button><a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a></button>
                                                         <div class="add_item">
                                                             <input class="add_item_ip" type="text" placeholder="Add a new item">
                                                             <button class="add_item_btn">Add Item</button>
@@ -189,7 +194,7 @@
                         
                         
                         
-                                                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-right">
+                                                    <!-- <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-right">
                                                         <div class="name_of_list">Name of List</div>
                                                         <div class="add_item">
                                                             <input class="add_item_ip" type="text" placeholder="Add a new item">
@@ -213,7 +218,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -227,8 +232,8 @@
                         </footer> -->
                         <div id="popup" class="modalpop">
                             <a href="#" class="close">&times;</a>
-                            <input type="text" placeholder="Edit Item" id="edit_ip" required>
-                            <button type="submit" id="save_edit">Edit</button>
+                            <input type="text" placeholder="Edit Item" id="edit_ip" required v-model="updateListName">
+                            <button type="submit" id="save_edit" class="list-edit" v-on:click="updateList">Edit</button>
                         </div>
                         <a href="#" class="closepop"></a>
                 </div>      

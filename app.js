@@ -24,7 +24,10 @@ const app = new Vue ({
         allItems: [],
         input:{},
         itemID: 0,
-        updatingItem: ""
+        updatingItem: "",
+        updateBoardName: "",
+        updateListName: "",
+        listName: ""
     },
     methods: {
             handleLogin: function() {
@@ -114,6 +117,7 @@ const app = new Vue ({
         showAllBoards: function() {
             this.boardSingle = false;
             this.getBoards()
+            this.allLists=""
         },
         createBoard: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
@@ -149,7 +153,48 @@ const app = new Vue ({
 
             // this.getBoards()
         },
+        assignEditButton: function(e) {
+            const editButton = document.querySelector('.board-edit')
+            editButton.setAttribute("board", e.target.id)
+        },
+        updateBoard: function(e){
+            this.boardID = e.target.attributes[3].value;
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const updateBoard = {board_name: this.updateBoardName}
+            fetch(`${URL}/boards/${this.boardID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
+                method: "put",
+                headers: {
+                    "Content-Type" : "application/json",
+                    Authorization: `bearer ${this.token}`
+                },
+                    body:JSON.stringify(updateBoard)
+            })
+            .then(response => {
+                this.getBoards();
+                })
+            this.updateBoardName = "";
+        },
         showList: function(e){
+            this.boardID = e.target.id;
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            fetch(`${URL}/boards/${this.boardID}/lists`, {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `bearer ${this.token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.boardSingle = true
+                if (!data.response){
+                    this.allLists = data
+                }
+            })
+            // console.log(this.allLists);
+            // console.log(document.querySelector(`div[id="${this.boardID}"]`).text)
+        },
+        refreshLists: function (){
             const URL = this.prodURL ? this.prodURL : this.devURL
             fetch(`${URL}/boards/${this.boardID}/lists`, {
                 method: "get",
@@ -179,8 +224,22 @@ const app = new Vue ({
             })
             .then(response => response.json())
             .then(data => {
-                this.showList()
+                this.refreshLists()
                 this.listInput=""
+            })
+        },
+        deleteList: function(e){
+            this.listID = e.target.id;
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const list = {list_name: this.listInput}
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}`,{
+                    method: "delete",
+                    headers: {
+                        Authorization: `bearer  ${this.token}`  
+                    }
+            })
+            .then(response => {
+                this.refreshLists()
             })
         },
         createItem: function(e){
@@ -216,6 +275,27 @@ const app = new Vue ({
               this.allItems = data
             })
         },
+        assignListEditButton: function(e) {
+            const editButton = document.querySelector('.list-edit')
+            editButton.setAttribute("list", e.target.id)
+        },
+        updateList: function(e){
+            this.listID = e.target.attributes[3].value;
+            const URL = this.prodURL ? this.prodURL : this.devURL
+            const updateList = {board_name: this.updateListName}
+            console.log(updateList);
+            fetch(`${URL}/boards/${this.boardID}/lists/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
+                method: "put",
+                headers: {
+                    "Content-Type" : "application/json",
+                    Authorization: `bearer ${this.token}`
+                },
+                    body: JSON.stringify(updateList)
+            })
+            .then(response => {
+                this.refreshLists();
+                })
+            },
         editItem: function(e){
             this.itemID = e.target.id
             this.listID = e.target.getAttribute('id2')
