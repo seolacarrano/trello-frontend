@@ -35,27 +35,25 @@
                             <div class="topnav"></div>
                         </nav>
                     </header>
+                    <!-- HOMEPAGE -->
                     <h1>Welcome to Tello</h1>
                     <p>A project management tool that will help you plan, manage and execute all your projects. </p>
                     <div class="formscontainer">
+                        <!-- SIGN IN -->
                         <div class="signin">
                             <div class="containerup">
                                 <h2>SIGN IN</h2>
                                 <form v-on:submit.prevent="handleLogin">
                                     <input type="email" placeholder="Enter Email" id="uname" required v-model="loginUN">
                                     <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
-                                    <!-- V1 BUTTON -->
-                                    <!-- <button type="submit"><a href="./board.html">Login</a></button> -->
-    
-                                    <!-- V2 BUTTON -->
                                     <button type="submit" id="loginbutton">Login</button>
                                 </form>
                             </div>
                         </div>
+                        <!-- SIGN UP -->
                         <div class="signup">
                             <div class="noaccount">
                                 <h2 id="h2"> DON'T HAVE AN ACCOUNT? </h2>
-                    
                                 <div class="signupmodal">
                                     <a href="#popup" class="btn">Sign Up</a>
                                     <div id="popup" class="modalpop">
@@ -71,20 +69,14 @@
                                     </div>
                                     <a href="#" class="closepop"></a>
                                 </div>
-                    
                             </div>
-                    
                         </div>
-                    
                     </div>
-                    
-                    <!-- <footer>
-                        <p id="footer">All rights reserved @Tello blah blah G.S</p>
-                    </footer> -->
         </div>
 
-        <!-- LOGGED IN PAGE -->
+        <!-- LOGGED IN PAGES -->
         <div id="login" v-if="loggedin">
+                <!-- MENU -->
                 <header>
                         <nav id="menutoggle">
                             <input id="toggle" type="checkbox">
@@ -98,18 +90,20 @@
                                 <li class="menuoptions" v-on:click="handleLogOut"><a class="menulist" href="#">Sign Out</a></li>
                             </ul>
                         </nav>
-                    
                     </header>
                     
                     
-                    <!-- ALL BOARDS -->
+                    <!-- BOARDS PAGE -->
                     <div id="logged-in-boards" v-if="!boardSingle">
+                            <!-- CREATE BOARDS -->
                             <div class="add_board">
                                 <p class="add_board_msg">+ Create a New Board</p>
                                 <input class="add_board_ip" type="text" placeholder="Add Board Title" v-model="boardName">
                                 <button class="add_board_btn" v-on:click="createBoard">CREATE</button>
                                 <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
                             </div>
+
+                            <!-- RENDERED BOARDS -->
                             <div class="all_boards">
                                 <div class="placeholders" v-for="board of boards">
                                     <div class="placeholder1" v-bind:id="board.id">
@@ -118,10 +112,10 @@
                                         <button v-on:click="deleteBoard" v-bind:id="board.id">delete</button>
                                         <button v-on:click="showBoard" v-bind:id="board.id">lists</button>
                                     </div>
-                                    <!-- v-for="list of allLists" -->
-                                    <!-- :class="board.id == list.board_id? list_id : null" -->
                                 </div>
                             </div>
+
+                            <!-- BOARDS EDIT POPUP -->
                             <div id="popup" class="modalpop">
                                 <a href="#" class="close">&times;</a>
                                 <input type="text" placeholder="Edit Board" class="edit_ip" required v-model="updateBoardName">
@@ -130,31 +124,17 @@
                             <a href="#" class="closepop"></a>
                     </div>
 
-                    <!-- LISTS IN BOARD -->
+                    <!-- LISTS PAGE -->
                     <div id="logged-in-list" class="one_board" v-if="boardSingle">
                         <div class="current_board"> {{boards}} </div>
+
+                        <!-- CREATE LISTS -->
                         <div class="add_list">
                             <input class="add_list_ip" type="text" placeholder="Add List Title" v-model="listInput">
                             <button class="add_list_btn" v-on:click="createList">Add List</button>
                         </div>
-                    
                         
-                        <!-- <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script> -->
-
-                        <!-- <script defer>
-                                $(document).ready(function() {
-                                    const example2Left = document.getElementById('all_lists_left');
-                                    const example2Right = document.getElementById('all_lists_right');
-                                    new Sortable(example2Left, {
-                                        group: 'shared', // set both lists to same group animation: 150
-                                    });
-                                    new Sortable(example2Right, {
-                                        group: 'shared',
-                                        animation: 150
-                                    });
-                                });
-                            </script> -->                        
-                        
+                        <!-- RENDERED LISTS + ITEMS -->
                         <div class="page-content page-container" id="page-content">
                             <div class="padding">
                                 <div class="row">
@@ -163,26 +143,26 @@
                                             <div class="list list-row card" id="sortable" data-sortable-id="0" aria-dropeffect="move">
                                                 <div class="row">
                                                     
-                                                    <!-- LISTS -->
+                                                    <!-- RENDERED LISTS -->
                                                     <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-left" v-for="list in allLists">
                                                         <div class="name_of_list">{{list.list_name}}</div>
                                                         <button v-bind:id="list.id" v-on:click="deleteList">Delete</button>
                                                         <button><a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a></button>
 
-                                                        <!-- KRISTY ADDITION -->
+                                                        <!-- ADD ITEMS -->
                                                         <div class="add_item">
                                                             <input class="add_item_ip" type="text" placeholder="Add a new item" v-model="input[list.id]">
                                                             <button class="add_item_btn" v-bind:id="list.id" v-on:click="createItem">Add Item</button>
                                                         </div>
 
-                                                        <!-- ITEMS -->
-                                                        <!-- ITEMS -->
+                                                        <!-- DRAGGABLE RENDERED ITEMS -->
                                                         <div id="all_lists_right" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop">
                                                                 <!-- Add item id and list id to delete this item from the current list -->
                                                                 <div v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop" v-for="item of allItems" v-if="list.id == item.list_id" class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
                                                                     <div class="flex" v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop"> <div v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop" class="item-author text-color" data-abc="true" v-bind:itemName="item.item_name">{{item.item_name}}</div> 
                                                                 </div>
-                                                                <!-- THIS IS WHERE YOU NEED TO ADD EDIT AND DELETE  -->
+                                                                
+                                                                <!-- EDIT AND DELETE ITEMS BUTTONS -->
                                                                 <div>
                                                                     <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                                                                         <circle cx="12" cy="12" r="1"></circle>
@@ -191,26 +171,16 @@
                                                                     </svg> </a>
                                                                         <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
                                                                             <a class="dropdown-item edit" data-abc="true" data-toggle="modal" data-target="#exampleModal" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="editItem">Edit</a>
-                                                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                                                                Launch demo modal
-                                                                            </button> -->
-                                                                            
-                                                                            <!-- Modal -->
-                                                                            
-                                                                                <!-- <button type="submit" v-bind:id="list.id" v-on:click="updateItem">Submit</button>
-                                                                            </div>
-                                                                            <a href="#" class="closepop"></a> -->
-                                                                            
                                                                             <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="deleteItem">Delete</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <!-- Modal -->
+
+                                                                <!-- MODAL -->
                                                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
@@ -229,34 +199,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                        
-                        
-                        
-                                                    <!-- <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-right">
-                                                        <div class="name_of_list">Name of List</div>
-                                                        <div class="add_item">
-                                                            <input class="add_item_ip" type="text" placeholder="Add a new item">
-                                                            <button class="add_item_btn">Add Item</button>
-                                                        </div>
-                                                        <div id="all_lists_right">
-                                                            <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
-                                                                <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">item2</a>
-                                                                </div>
-                                                                <div>
-                                                                    <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                                                        <circle cx="12" cy="12" r="1"></circle>
-                                                                        <circle cx="12" cy="5" r="1"></circle>
-                                                                        <circle cx="12" cy="19" r="1"></circle>
-                                                                    </svg> </a>
-                                                                        <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                                            <a href="#popup" class="dropdown-item edit" data-abc="true">Edit</a>
-                                                                            <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -265,16 +207,7 @@
                             </div>
                         </div>
                         
-                        <!-- <footer>
-                            <p id="footer">All rights reserved @Tello blah blah G.S</p>
-                        </footer> -->
-                        <!-- <div id="popup" class="modalpop">
-                            <a href="#" class="close">&times;</a>
-                            <input type="text" placeholder="Edit Item" class="edit_ip">
-                            <button type="submit" id="save_edit">Edit</button>
-                        </div>
-                        <a href="#" class="closepop"></a> -->
-
+                        <!-- LISTS POPUP -->
                         <div id="popup" class="modalpop">
                             <a href="#" class="close">&times;</a>
                             <input type="text" placeholder="Edit List" class="edit_ip" v-model="updateListName">
