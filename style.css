@@ -1,22 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');
 body {
     margin: 0;
     padding: 0;
 }
-nav {
+.space-holder{
+    height: 100px;
+}
+
+#nologin #nav {
     background-color: #44ABF8;
     height: 75px;
     width: 100%;
 }
 
-.topnav{
+#nologin .topnav{
     background-color: #381DFC;
     height: 25px;
     width: 100%;
 }
+/*-----------------------------------------------------------*/
+#nologin h1{
+    text-align: center;
+    color:#381DFC;
+    font-family: 'Eczar', serif;
+    font-size:60px
+}
 
+#nologin p{
+    text-align: center;
+    color:#585454;
+    font-family: 'Crimson Text', serif;
+    font-size:25px;
+}
+#nologin .formscontainer{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.h2{
+    color:white;
+    text-align: center;
+    font-family: 'Eczar', serif;
+    padding: 0px 20px;
+}
+#nologin .signin{
+    width:500px;
+    height: 400px;
+    background-color:rgb(101,280,231);
+    margin:10px 40px;
+    align-content: center;
+    border-radius: 0.5em;
+}
+#nologin .containerup{
+    width:50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 19%;
+    align-items: center;
 
-footer {
-    background-color: #381DFC;
-    height: 100px;
+}
+#nologin #uname{
+    margin-bottom: 20px;
     width: 100%;
+}
+#nologin #psw{
+    margin-bottom: 20px;
+    width: 100%;
+}
+#nologin #loginbutton, #create{
+    background-color: #44ABF8;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 0.5em;
+    font-weight: 700;
+    font-size:16px;
+    font-family: 'Crimson Text', serif;
+}
+#nologin #loginbutton, #create:hover {
+    opacity: 0.8;
+}
+
+#nologin input{
+    font-family: 'Crimson Text', serif;
+}
+#nologin #a-login{
+    color: white;
+    text-decoration: none;
+}
+#nologin #close_x{
+    text-decoration: none;
+}
+
+/*--Modal/ Sign Up --------------------------------------------------------*/
+#nologin .signup{
+    width:500px;
+    height: 400px;
+    background-color:#E1EA35;
+    margin:10px 40px;
+    text-align: center;
+    border-radius: 0.5em;
+}
+#nologin .noaccount{
+    margin-top: 30%;
+}
+#nologin #create{
+    background-color: #E1EA35;
+    width: 50%;
+}
+.h3{
+    color:#381DFC;
+    font-family: 'Crimson Text', serif;
+
+}
+
+#nologin .btn{
+    color: white;
+    text-decoration: none;
+}
+#nologin .btn {
+    padding: 14px 20px;
+    border-radius: 0.5em;
+    display: inline-block;
+    margin: 8px 0;
+    background-color:#381DFC;
+    font-weight: 700;
+    transition: .3s;
+    font-size:16px;
+    cursor: pointer;
+    width: 30%;
+    font-family: 'Crimson Text', serif;
+}
+#nologin .btn:hover {
+    opacity: 0.8;
+}
+#nologin .modalpop {
+    position: fixed;
+    padding: 10px;
+    width: 500px;
+    border-radius: 0.5em;
+    /*position of modal on screen*/
+    top: 50%;
+    left: 50%;
+    color: #000;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,1);
+    /*this is to make modal window disappear when clicking x /Visibility -Transition */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s, visibility 0s linear .5s;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#nologin #name, #email, #pssw {
+    width: 60%;
+    margin: 10px 0px;
+}
+
+#nologin .modalpop:target {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+#nologin .modalpop .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+    color: #381DFC;
+    transition: color .3s;
+    font-size: 32px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+#nologin .modalpop .close:hover {
+    color: #44ABF8;
+}
+#nologin .closepop {
+    background-color: rgba(0,0,0,.8);
+    cursor: default;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility 0s linear .5s;
+}
+#nologin .modalpop:target + .closepop {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+/*-Media Queries---------------------------------------------*/
+@media (max-width:800px){
+    #nologin {
+        background-color: #381DFC;
+    }
+    #nologin .h3{
+        font-size: 20px;
+    }
+
+    #nologin nav{
+        visibility: hidden;
+    }
+    #nologin h1{
+        color: white;
+        font-size: 40px;
+    }
+    #nologin p{
+        color: white;
+        font-size: 19px;
+        margin: 20px;
+        text-align: center;
+    }
+    #nologin .formscontainer{
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+    #nologin .signin {
+        width:90%;
+        background-color: white;
+    }
+
+    #nologin .signup{
+        width:90%;
+        background-color: white;
+    }
+
+    #nologin .modalpop{
+        width: 50%;
+    }
+    #nologin h2{
+        color: #44ABF8;
+    }
+    #nologin .btn{
+        background-color:rgb(101,280,231);
+    }
+}
+@media (max-width:420px){
+    #nologin .signin{
+        text-align:center;
+        margin-top: 20px;
+        height: 280px;
+    }
+    .h2{
+        font-size:20px;
+    }
+    .signup{
+        margin-top:50px;
+    }
+    #nologin .btn{
+        width:40%;
+    }
+    #nologin .containerup{
+        width: 80%;
+    }
+    #nologin .signup{
+        height: 260px ;
+    }
+
+}
+@media (max-width:370px){
+    #nologin .btn{
+        width:50%;
+    }
+    .h2{
+        font-size:16px;
+    }
+    #nologin p{
+        font-size:12px;
+    }
 }
