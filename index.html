@@ -159,7 +159,7 @@
 
                                                         <!-- ADD ITEMS -->
                                                         <div class="add_item">
-                                                            <input class="add_item_ip" type="text" placeholder="Add a new item" v-model="input[list.id]">
+                                                            <input class="add_item_ip" type="text" placeholder="Add a new item" v-model="itemInput">
                                                             <button class="add_item_btn" v-bind:id="list.id" v-on:click="createItem">Add Item</button>
                                                         </div>
 
@@ -226,7 +226,7 @@
                 </div>      
         </div>
         <footer>
-            <p id="footer">All rights reserved @Tello blah blah </p>
+            <p id="footer">All rights reserved @Tello </p>
         </footer>
     </div>
 </body>

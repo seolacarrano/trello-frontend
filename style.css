@@ -3,6 +3,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 .space-holder{
     height: 100px;
