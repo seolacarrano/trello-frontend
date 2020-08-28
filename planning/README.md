@@ -60,43 +60,56 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 
 | Letter | Component | Priority | Estimated Time | Time Invested |
 | --- | :---: |  :---: | :---: | :---: |
-| A | Wireframing | H | 1hrs | -hr |
-| B | Hamburger Menu | H | 1hrs | -hr |
-| C | Login HTML | H | 3hrs | -hr |
-| D | Boards HTML | H | 3hrs | -hr |
-| E | Lists HTML | H | 2hrs | -hr |
-| F | Login CSS | H | 2hrs | -hr |
-| G | Boards CSS | H | 4hrs | -hr |
-| H | Lists CSS | H | 4hrs | -hr |
-| I | Login Media Queries | H | 4hrs | -hr |
-| J | Boards Media Queries | H | 4hrs | -hr |
-| K | Lists Media Queries | H | 4hrs | -hr |
-| L | Lists Media Queries | H | 4hrs | -hr |
-| M | Vue Research | H | 4hrs | -hr |
-| N | Login/Logout Functions | M | 3hrs | 3hrs |
-| O | CRUD Functions for Boards | M | 3hrs | 3hrs |
-| P | CRUD Functions for Lists | M | 2hrs | 2hrs |
-| Q | CRUD Functions for Items | H | 4hrs | -hr |
-| R | Drag and Drop Items Functionality | H | 4hrs | -hr |
-| S | Login HTML/CSS Debugging | H | 1hr| -hr |
-| T | Login Javascript Debugging | H | 1hr| -hr |
-| U | Boards HTML/CSS Debugging | H | 1hr| -hr |
-| V | Boards Javascript Debugging | H | 1hr| -hr |
-| W | Lists HTML/CSS Debugging | H | 1hr| -hr |
-| X | Lists Javascript Debugging | H | 1hr| -hr |
-| Y | Items HTML/CSS Debugging | H | 1hr| -hr |
-| Z | Items Javascript Debugging | H | 2hrs | -hr |
-| AA | Blackbox Testing | H | 2hrs | -hr |
-| AB | Deployment | H | 2hrs| -hr |
-| Total | H | 33hrs| -hrs | -hrs |
+| A | Wireframing | H | 1hr | 3hr |
+| B | Hamburger Menu | H | 1hr | 1hr |
+| C | Login HTML | H | 1hrs | 1hr |
+| D | Boards HTML | H | 3hr | 1hr |
+| E | Lists HTML | H | 2hrs | 1hr |
+| F | Login CSS | H | 3hrs | 2hr |
+| G | Boards CSS | H | 4hrs | 4hr |
+| H | Lists CSS | H | 4hrs | 4hr |
+| S | Login/Board/List Modal | M | 6hr| 4hr |
+| S | Edit Items Modal | H | 3hr| 3hr |
+| M | Vue Research | H | 4hrs | 7hr |
+| M | Vue Login Implementation | H | 2hrs | 1hr |
+| M | Vue Boards Implementation | H | 1hrs | 1.5hr |
+| M | Vue Lists Implementation | H | 3hrs | 3hr |
+| M | Vue Items Implementation | H | 2hrs | .5hr |
+| N | Login/Logout Functions | M | 2hrs | 1.5hrs |
+| O | Create Function for Boards | M | 1hrs | 1hrs |
+| O | Read Function for Boards | M | 1hrs | 3hrs |
+| O | Update Function for Boards | M | 4hrs | 2.5hrs |
+| O | Delete Function for Boards | M | 3hrs | 1.5hrs |
+| O | Create Function for List | M | 1hr | 1hr |
+| O | Read Function for List | M | 2hrs | 3hrs |
+| O | Update Function for List | M | 3hrs | 2hrs |
+| O | Delete Function for List | M | 1hr | 1hr |
+| O | Create Function for Item | M | 3hr | 2hr |
+| O | Read Function for Item | M | 3hrs | 3hrs |
+| O | Update Function for Item | M | 3hrs | 4hrs |
+| O | Delete Function for Item | M | 1hr | 1hr |
+| R | Drag and Drop Items Research | H | 9hr | 8hrs |
+| R | Drag and Drop Items Testing and Implementation | H | 10hr | 15hr |
+| S | Login HTML/CSS Debugging | H | 1.5hr| 3hr |
+| T | Login Javascript Debugging | H | 1hr| .5hr |
+| U | Boards HTML/CSS Debugging | H | 1.5hr| 3hr |
+| V | Boards Javascript Debugging | H | 2hr| 4hr |
+| W | Lists HTML/CSS Debugging | H | 3hr| 3hr |
+| X | Lists Javascript Debugging | H | 1hr| 2hr |
+| Y | Items HTML/CSS Debugging | H | 1hr| 1hr |
+| Z | Items Javascript Debugging | H | 3.5hrs | 2hr |
+| AA | Blackbox Testing | H | 2hrs | 2hr |
+| AB | Deployment | H | 1hrs| .5hr |
+| - | Total | - | -hrs | 107.5hrs |
 
 #### PostMVP
 | Letter | Component | Priority | Estimated Time | Time Invested |
 | --- | --- | :---: |  :---: | :---: |
-| AC | Hover effect | L | 1hr | -hr |
+| AC | Hover effect | L | 1hr | 1.5hr |
 | AD | Social media icons | L | 5hrs | -hr |
-| AE | Add button shadow effects | L | 4hrs | -hr |
-| AF | Change fonts | L | 1hr | -hr |
+| AE | Add button shadow effects | L | 4hrs | .5hr |
+| AF | Landing Page HTML | L | 2hr | -hr |
+| AF | Landing Page CSS | L | 4hr | -hr |
 | - | Total | - | 11hrs | -hrs | -hrs |
 
 ## Additional Libraries
