@@ -285,7 +285,8 @@ const app = new Vue ({
         createItem: function(e){
             const URL = this.prodURL ? this.prodURL : this.devURL
             this.listID = e.target.id
-            const item = {item_name: this.itemInput}
+            const itemInput = this.input[this.listID]
+            const item = {item_name: itemInput}
             fetch(`${URL}/boards/${this.boardID}/lists/${e.target.id}/items`, {
                 method: "post",
                 headers: {
@@ -297,7 +298,7 @@ const app = new Vue ({
             .then(response => response.json())
             .then(data => {
                 this.showItems()
-                this.itemInput = ""
+                this.input[this.listID] = ""
             })
         },
         showItems: function(e){
