@@ -63,6 +63,7 @@ const app = new Vue ({
             this.loggedin = false;
             this.user=null;
             this.token=null;
+            this.boardSingle=false
         },
         handleSignup: function(){
             const URL = this.prodURL ? this.prodURL : this.devURL;
