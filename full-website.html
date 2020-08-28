@@ -137,7 +137,7 @@
                         <!-- CREATE LISTS -->
                         <div class="add_list">
                             <input class="add_list_ip" type="text" placeholder="Add List Title" v-model="listInput">
-                            <button class="add_list_btn" v-on:click="createList">Add List</button>
+                            <button class="add_list_btn" v-on:click="createList">ADD LIST</button>
                         </div>
                         
                         <!-- RENDERED LISTS + ITEMS -->
@@ -150,10 +150,12 @@
                                                 <div class="row">
                                                     
                                                     <!-- RENDERED LISTS -->
-                                                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12" id="example2-left" v-for="list in allLists">
-                                                        <div class="name_of_list">{{list.list_name}}</div>
-                                                        <button v-bind:id="list.id" v-on:click="deleteList">Delete</button>
-                                                        <button><a href="#popup" class="dropdown-item edit" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a></button>
+                                                    <div id="example2-left" v-for="list in allLists">
+                                                        <div class="list-container">
+                                                            <div class="name_of_list">{{list.list_name}}</div>
+                                                            <button class="buttons-for-list" v-bind:id="list.id" v-on:click="deleteList">Delete</button>
+                                                            <a href="#popup" class="buttons-for-list" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a>
+                                                        </div>
 
                                                         <!-- ADD ITEMS -->
                                                         <div class="add_item">
@@ -184,7 +186,7 @@
 
                                                                 <!-- MODAL -->
                                                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog" role="document">
+                                                                    <div class="modal-dialog modal-sm modal-dialog-centered"  role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -201,6 +203,7 @@
                                                                     </div>
                                                                     </div>
                                                                 </div>
+
                                                                 <!-- END OF MODAL -->
                                                             </div>
                                                         </div>

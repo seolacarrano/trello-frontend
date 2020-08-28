@@ -64,6 +64,7 @@ li{
     border-radius: 2px;
     height: 30px;
     width: 90px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
 }
 
 #logged-in-boards .all_boards {
@@ -72,6 +73,7 @@ li{
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 30px;
+    margin-bottom: 80px;
 }
 
 #logged-in-boards .all_boards_msg {
@@ -238,4 +240,34 @@ li{
     #menutoggle input:checked ~ ul{
         transform: translate(0,0)
     }
+}
+@media (max-width:370px){
+    #logged-in-boards .allboards{
+        justify-content: center;
+        
+    }
+    #logged-in-boards .add_board_msg{
+        font-size: 25px;
+        margin-left:10px;
+    }
+    .add_board_ip{
+        margin-left:10px;
+    }
+    #logged-in-boards .container-for-placeholder{
+        margin: 0px;
+        width:280px;
+    }
+    #logged-in-boards .placeholders{
+        width:250px;
+        padding:10px;
+    }
+   
+    #logged-in-boards .container-for-buttons{
+    
+        margin:0px;
+    }
+    .board-buttons{
+        margin:10px;
+    }
+
 }

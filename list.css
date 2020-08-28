@@ -5,7 +5,10 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.row{
+    justify-content: center;
+    margin-bottom: 80px;
+    }
 #logged-in-list #menu{
     font-family: 'Alata', sans-serif;
     display: flex;
@@ -16,11 +19,6 @@ body {
 #logged-in-list #logo {
     padding-top: 10px;
     display:flex ;
-}
-
-#logged-in-list a {
-    text-decoration: none;
-    color: #44ABF8;
 }
 
 #logged-in-list ul{
@@ -38,14 +36,16 @@ body {
 
 
 #logged-in-list .current_board{
-    height: 30px;
-    width: 170px;
+    height: 40px;
+    text-align: center;
+    width: 200px;
     background-color: #381DFC;
     margin-top: 50px;
     margin-bottom: 10px;
     color: white;
     margin-left: 35px;
-    color: white;
+    padding:6px;
+    border-radius: 3px;
 }
 
 .add_list_ip{
@@ -53,25 +53,82 @@ body {
     font-family: 'Alata', sans-serif;
     font-weight: bold;
     border-style: dotted;
-    width: 200px;
+    width: 260px;
+    height: 40px;
 }
 
 #logged-in-list .add_list_btn{
-    background-color: #381DFC;
+    background-color: #44ABF8;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
+    font-family: 'Crimson Text', serif;
+    color: white;
+    height: 40px;
+    width: 160px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+}
+.name_of_list{
+    font-size: 25px;
+    margin-right: 30px;
+
+}
+.list-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+.buttons-for-list{
+    border:solid #585454 1px;
+    width:80px;
+    height: 40px;
+    background-color: white;
+    padding:7px;
+    font-family: 'Crimson Text', serif;
+    margin: 20px 7px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration:none;
+    color:#585454;
+
+}
+.buttons-for-list:hover {
+    background-color:rgb(101,280,231);
+    border:none;
+    color:blue
+}
+#example2-left{
+    border: solid gray 1px;
+    border-radius:5px;
+    margin:20px;
+    width: 420px;
+    padding:20px;
+}
+.add_item{
+    margin:20px 0px;
+    text-align: center;
+}
+.add_item_btn{
+    background-color: #44ABF8;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
     font-family: 'Crimson Text', serif;
     color: white;
     height: 30px;
-    width: 150px;
+    width: 90px;
     cursor: pointer;
     margin-bottom: 10px;
     border: none;
+    border-radius: 3px;
 }
 
 
 /*-------------------------------------drag and drop----------------------------------------*/
 #all_lists_right {
-    /* padding: 50px 0 50px 0; */
+    padding-bottom: 50px;
     min-height: 100px;
 }
 
@@ -237,13 +294,6 @@ footer {
         margin-bottom: 20px;
     }
 
-    #logged-in-list a{
-        text-decoration:none;
-        color: #44ABF8;
-        transition:#44ABF8 0.3s ease ;
-        margin-left: 10px;
-    }
-
     #logged-in-list a:hover {
         color: #E1EA35;
     }
@@ -331,14 +381,42 @@ footer {
     }
 
 }
+@media (max-width:540px){
+    #example2-left{
+        width: 300px ;
+    }
+    .name_of_list{
+        font-size: 20px;
+       margin:0px;
+    }
+    .add_item_ip{
+        width:140px;
+        font-size:14px;
+    }
+    .add_item_btn{
+        font-size:14px;
+    }
+    .add_list_btn{
+        margin-top:10px;
+        margin-left: 35px;
+    }
 
+}
 
 /*--------------------------------------modal--------------------------------------*/
 
 
-#save_edit{
-    background-color: #E1EA35;
+#save_edit {
+    background-color: #44ABF8;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.10);
+    font-family: 'Crimson Text', serif;
+    color: white;
+    height: 30px;
     width: 50%;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
 }
 
 .modalpop {
