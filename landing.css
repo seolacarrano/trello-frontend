@@ -104,7 +104,7 @@
         margin-right: auto;
     }
 }
-@media (max-width: 469px) {
+@media (max-width: 546px) {
     *,
     *::before,
     *::after {
@@ -118,7 +118,7 @@
     } 
 
     #jumbotron {
-    height: 60vh;
+    height: 80vh;
     margin-bottom: 40px;
     }
     
@@ -179,7 +179,7 @@
     }
   }  
 
-@media (max-width: 286px) {
+@media (max-width: 320px) {
 
   #jumbotron {
   height: 60vh;
