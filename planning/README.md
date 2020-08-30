@@ -131,6 +131,28 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 <a href="#" class="closepop"></a>
 ```
 
+### Update List Function
+- The update list function updates the server with user submitted list changes and reflects those changes on the frontend of the application.
+
+```
+updateList: function(e){
+        this.listID = e.target.id
+        const URL = this.prodURL ? this.prodURL : this.devURL
+        const updateList = {board_name: this.updateListName}
+        fetch(`${URL}/boards/${this.boardID}/list/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
+            method: "put",
+            headers: {
+                "Content-Type" : "application/json",
+                Authorization: `bearer ${this.token}`
+            },
+                body:JSON.stringify(updateList)
+        })
+        .then(response => {
+            this.showList();
+            })
+        }
+```
+
 #### Drag and Drop Functions
 - In order to do a drag and drop, two things were needed. The first thing was the action of dragging and dropping, and the second thing was updating the items table in the database when the item is dropped to another list. To create the appearance of drag and drop, the event listeners of ondragstart, ondrag, and ondrop, and event.preventDefault() were used on the frontend. In order to update the database, DELETE and POST HTTP requests were made to the server. The previous ids of the list and item being dragged were obtained from the div CSS selector ids of the list and item. These ids were used to make the DELETE request, When the item is dropped to the new list, the CSS selector id of the div for the new list is used to make the POST request. Since making a POST request means making a whole new item with the same content, the drag and drop function does not account for the position the user drags to. The item being dragged will only be dropped to the last position of the list. In future implementation of Tello, the drag and drop feature will be improved to take in consideration of the desired position the user wants to drag to.
 ```
