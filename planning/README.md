@@ -118,7 +118,7 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 
-## Code Snippet
+## Code Snippets
 
 #### Edit Items Modal
 - The edit modal for items, which is the blueprint for the modal for editing boards and the sign up modal. When we first implemented the code, everything on the page was highlighted when a modal popup is displayed. Once we moved the related divs below footer, it solved the problem. It was a simple solution but took some time to figure it out.
@@ -129,6 +129,28 @@ For our unit03 project, we are creating a clone of the popular productivity app 
     <button type="submit" id="save_edit">Edit</button>
 </div>
 <a href="#" class="closepop"></a>
+```
+
+### Update List Function
+- The update list function updates the server with user submitted list changes and reflects those changes on the frontend of the application.
+
+```
+updateList: function(e){
+        this.listID = e.target.id
+        const URL = this.prodURL ? this.prodURL : this.devURL
+        const updateList = {board_name: this.updateListName}
+        fetch(`${URL}/boards/${this.boardID}/list/${this.listID}`, { //fetching is how we gather data from our server so this needs to be the correct route to get the correct data 
+            method: "put",
+            headers: {
+                "Content-Type" : "application/json",
+                Authorization: `bearer ${this.token}`
+            },
+                body:JSON.stringify(updateList)
+        })
+        .then(response => {
+            this.showList();
+            })
+        }
 ```
 
 #### Drag and Drop Functions
