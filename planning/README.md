@@ -118,7 +118,7 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 
-## Code Snippet
+## Code Snippets
 
 #### Edit Items Modal
 - The edit modal for items, which is the blueprint for the modal for editing boards and the sign up modal. When we first implemented the code, everything on the page was highlighted when a modal popup is displayed. Once we moved the related divs below footer, it solved the problem. It was a simple solution but took some time to figure it out.

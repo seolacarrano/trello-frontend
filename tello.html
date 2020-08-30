@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tello</title>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+     <!-- SORTABLE -->
+     <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1556638668/Sortable.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- CUSTOM CODE -->
+    <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="board.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <!-- NOT LOGGED IN PAGE -->
+        <div id="nologin" v-if="!loggedin">
+                <header>
+                        <nav>
+                            <div class="topnav"></div>
+                        </nav>
+                    </header>
+                    <!-- HOMEPAGE -->
+                <div class="space-holder"></div>
+                    <h1>Welcome to Tello</h1>
+                    <p>A project management tool that will help you plan, manage and execute all your projects. </p>
+                    <div class="formscontainer">
+                        <!-- SIGN IN -->
+                        <div class="signin">
+                            <div class="containerup">
+                                <h2 class="h2">SIGN IN</h2>
+                                <form v-on:submit.prevent="handleLogin">
+                                    <input type="email" placeholder="Enter Email" id="uname" required v-model="loginUN">
+                                    <input type="password" placeholder="Enter Password" id="psw" required v-model="loginPW">
+                                    <button type="submit" id="loginbutton">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- SIGN UP -->
+                        <div class="signup">
+                            <div class="noaccount">
+                                <h2 class="h2"> DON'T HAVE AN ACCOUNT? </h2>
+                                <div class="signupmodal">
+                                    <a href="#popup" class="btn">Sign Up</a>
+                                    <div id="popup" class="modalpop">
+                                        <a href="#" class="close" id="close_x">&times;</a>
+                                        <h3 class="h3">Sign up with</h3>
+                                        <h3 class="h3">Or sign up using your email</h3>
+                                        <form v-on:submit.prevent="handleSignup">
+                                            <!-- <input type="text" placeholder="Enter Name" id="name" required> -->
+                                            <input type="email" placeholder="Email" id="email" required v-model="createUN">
+                                            <input type="password" placeholder="Password" id="pssw" required v-model="createPW">
+                                            <button type="submit" id="create">Create</button>
+                                        </form>
+                                    </div>
+                                    <a href="#" class="closepop"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="space-holder"></div>
+        </div>
+
+        <!-- LOGGED IN PAGES -->
+        <div id="login" v-if="loggedin">
+                <!-- MENU -->
+                <header>
+                        <nav id="menutoggle">
+                            <input id="toggle" type="checkbox">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <ul id="menu">
+                                <li class="menuoptions"><a class="menulist"><img id="logo" src="https://res.cloudinary.com/dqduwnrb1/image/upload/v1598121710/Screen_Shot_2020-08-22_at_2.41.27_PM_jfpyaz.png" alt="logo" style="width:100px;height:50px;"></i></a></li>
+                                <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Home</a></li>
+                                <li class="menuoptions"><a class="menulist" href="#" v-on:click="showAllBoards">Boards</a></li>
+                                <li class="menuoptions" v-on:click="handleLogOut"><a class="menulist" href="#">Sign Out</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    
+                    
+                    <!-- BOARDS PAGE -->
+                    <div id="logged-in-boards" v-if="!boardSingle">
+                            <!-- CREATE BOARDS -->
+                            <div class="add_board">
+                                <p class="add_board_msg">+ Create a New Board</p>
+                                <input class="add_board_ip" type="text" placeholder="Add Board Title" v-model="boardName">
+                                <button class="add_board_btn" v-on:click="createBoard">CREATE</button>
+                                <p class="all_boards_msg"><i class="fas fa-chess-board"></i> All Boards</p>
+                            </div>
+
+                            <!-- RENDERED BOARDS -->
+                            <div class="all_boards">
+                                <div class="placeholders" v-for="board of boards">
+                                    <div class="container-for-placeholder">
+                                        <div class="placeholder1" v-bind:id="board.id">
+                                            {{board.board_name}}
+                                        </div>
+                                        <div class="container-for-buttons">
+                                            <a href="#popup" class="board-buttons" data-abc="true" v-bind:id="board.id" v-on:click="assignEditButton">EDIT</a>
+                                            <button class="board-buttons" v-on:click="deleteBoard" v-bind:id="board.id">DELETE</button>
+                                            <button class="board-buttons" v-on:click="showBoard" v-bind:id="board.id">LISTS</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOARDS EDIT POPUP -->
+                            <div id="popup" class="modalpop">
+                                <a href="#" class="close">&times;</a>
+                                <input type="text" placeholder="Edit Board" class="edit_ip" required v-model="updateBoardName">
+                                <button type="submit" class="board-edit" id="save_edit" v-on:click="updateBoard">Edit</button>
+                            </div>
+                            <a href="#" class="closepop"></a>
+                    </div>
+
+                    <!-- LISTS PAGE -->
+                    <div id="logged-in-list" class="one_board" v-if="boardSingle">
+                        <div class="current_board"> {{boards}} </div>
+
+                        <!-- CREATE LISTS -->
+                        <div class="add_list">
+                            <input class="add_list_ip" type="text" placeholder="Add List Title" v-model="listInput">
+                            <button class="add_list_btn" v-on:click="createList">ADD LIST</button>
+                        </div>
+                        
+                        <!-- RENDERED LISTS + ITEMS -->
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="container-fluid">
+                                            <div class="list list-row card" id="sortable" data-sortable-id="0" aria-dropeffect="move">
+                                                <div class="row">
+                                                    
+                                                    <!-- RENDERED LISTS -->
+                                                    <div id="example2-left" v-for="list in allLists">
+                                                        <div class="list-container">
+                                                            <div class="name_of_list">{{list.list_name}}</div>
+                                                            <button class="buttons-for-list" v-bind:id="list.id" v-on:click="deleteList">Delete</button>
+                                                            <a href="#popup" class="buttons-for-list" data-abc="true" v-bind:id="list.id" v-on:click="assignListEditButton">Edit</a>
+                                                        </div>
+
+                                                        <!-- ADD ITEMS -->
+                                                        <div class="add_item">
+                                                            <input class="add_item_ip" type="text" placeholder="Add a new item" v-model="input[list.id]">
+                                                            <button class="add_item_btn" v-bind:id="list.id" v-on:click="createItem">Add Item</button>
+                                                        </div>
+
+                                                        <!-- DRAGGABLE RENDERED ITEMS -->
+                                                        <div id="all_lists_right" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop">
+                                                                <!-- Add item id and list id to delete this item from the current list -->
+                                                                <div v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop" v-for="item of allItems" v-if="list.id == item.list_id" class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
+                                                                    <div class="flex" v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop"> <div v-bind:id="list.id" v-bind:id2="item.id" v-on:dragstart="dragItem" v-bind:listID = "list.id" v-on:drop="dropItem" v-on:dragover="allowDrop" class="item-author text-color" data-abc="true" v-bind:itemName="item.item_name">{{item.item_name}}</div> 
+                                                                </div>
+                                                                
+                                                                <!-- EDIT AND DELETE ITEMS BUTTONS -->
+                                                                <div>
+                                                                    <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                                        <circle cx="12" cy="5" r="1"></circle>
+                                                                        <circle cx="12" cy="19" r="1"></circle>
+                                                                    </svg> </a>
+                                                                        <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
+                                                                            <a class="dropdown-item edit" data-abc="true" data-toggle="modal" data-target="#exampleModal" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="editItem">Edit</a>
+                                                                            <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true" v-bind:id2="list.id" v-bind:id="item.id" v-on:click="deleteItem">Delete</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- MODAL -->
+                                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-sm modal-dialog-centered"  role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                        <input type="text" v-model="updatingItem">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-primary" v-on:click="updateItem" data-dismiss="modal">Update Item</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- END OF MODAL -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- LISTS POPUP -->
+                        <div id="popup" class="modalpop">
+                            <a href="#" class="close">&times;</a>
+                            <input type="text" placeholder="Edit List" class="edit_ip" v-model="updateListName">
+                            <button type="submit" id="save_edit" class="list-edit" v-on:click="updateList">Edit</button>
+                        </div>
+                        <a href="#" class="closepop"></a>
+                </div>      
+        </div>
+        <footer>
+            <p id="footer">All rights reserved @Tello </p>
+        </footer>
+    </div>
+</body>
+</html>
