@@ -33,7 +33,8 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 
 ## Time/Priority Matrix 
 
-[Link](https://docs.google.com/presentation/d/1igh0lJlM-ysyFnUZPP5U7qRCc_QVuoV4jBBvbCJV-5E/edit?usp=sharing)
+- [MVP](https://res.cloudinary.com/dpjdvsigb/image/upload/v1598750069/project-3-assets/frontend-mvp_bvlg7s.jpg)
+- [PostMVP](https://res.cloudinary.com/dpjdvsigb/image/upload/v1598750382/project-3-assets/frontend-post-mvp_plwllb.jpg)
 
 ### MVP/PostMVP - 5min
 
@@ -68,26 +69,26 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | F | Login CSS | H | 3hrs | 2hr |
 | G | Boards CSS | H | 4hrs | 4hr |
 | H | Lists CSS | H | 4hrs | 4hr |
-| I | Login/Board/List Modal | M | 6hr| 4hr |
-| J | Edit Items Modal | H | 3hr| 3hr |
+| I | Login/Board/List Modal | M | 6hr | 4hr |
+| J | Edit Items Modal | M | 3hr| 3hr |
 | K | Vue Research | H | 4hrs | 7hr |
 | L | Vue Login Implementation | H | 2hrs | 1hr |
 | M | Vue Boards Implementation | H | 1hrs | 1.5hr |
 | N | Vue Lists Implementation | H | 3hrs | 3hr |
 | O | Vue Items Implementation | H | 2hrs | .5hr |
-| P | Login/Logout Functions | M | 2hrs | 1.5hrs |
-| Q | Create Function for Boards | M | 1hrs | 1hrs |
-| R | Read Function for Boards | M | 1hrs | 3hrs |
-| S | Update Function for Boards | M | 4hrs | 2.5hrs |
-| T | Delete Function for Boards | M | 3hrs | 1.5hrs |
-| U | Create Function for List | M | 1hr | 1hr |
-| V | Read Function for List | M | 2hrs | 3hrs |
-| W | Update Function for List | M | 3hrs | 2hrs |
-| X | Delete Function for List | M | 1hr | 1hr |
-| Y | Create Function for Item | M | 3hr | 2hr |
-| Z | Read Function for Item | M | 3hrs | 3hrs |
-| AA | Update Function for Item | M | 3hrs | 4hrs |
-| AB | Delete Function for Item | M | 1hr | 1hr |
+| P | Login/Logout Functions | H | 2hrs | 1.5hrs |
+| Q | Create Function for Boards | H | 1hrs | 1hrs |
+| R | Read Function for Boards | H | 1hrs | 3hrs |
+| S | Update Function for Boards | H | 4hrs | 2.5hrs |
+| T | Delete Function for Boards | H | 3hrs | 1.5hrs |
+| U | Create Function for List | H | 1hr | 1hr |
+| V | Read Function for List | H | 2hrs | 3hrs |
+| W | Update Function for List | H | 3hrs | 2hrs |
+| X | Delete Function for List | H | 1hr | 1hr |
+| Y | Create Function for Item | H | 3hr | 2hr |
+| Z | Read Function for Item | H | 3hrs | 3hrs |
+| AA | Update Function for Item | H | 3hrs | 4hrs |
+| AB | Delete Function for Item | H | 1hr | 1hr |
 | AC | Drag and Drop Items Research | H | 9hr | 8hrs |
 | AD | Drag and Drop Items Testing and Implementation | H | 10hr | 15hr |
 | AE | Login HTML/CSS Debugging | H | 1.5hr| 3hr |
@@ -108,8 +109,8 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 | A | Hover effect | L | 1hr | 1.5hr |
 | B | Social media icons | L | 5hrs | -hr |
 | C | Add button shadow effects | L | 4hrs | .5hr |
-| D | Landing Page HTML | L | 2hr | -hr |
-| E | Landing Page CSS | L | 4hr | -hr |
+| D | Landing Page HTML | M | 2hr | -hr |
+| E | Landing Page CSS | M | 4hr | -hr |
 | - | Total | - | 16hrs | 2hrs |
 
 ## Additional Libraries
@@ -173,6 +174,6 @@ For our unit03 project, we are creating a clone of the popular productivity app 
 ```
 
 ## Issues and Resolutions
-**ERROR**: When we first implemented the code, everything on the page was highlighted when a modal popup is displayed.                          
 
+**ERROR**: When we first implemented the code, everything on the page was highlighted when a modal popup is displayed.                    
 **RESOLUTION**: Once we moved the related divs below footer, it solved the problem. It was a simple solution but took some time to figure it out.
