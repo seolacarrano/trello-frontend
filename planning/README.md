@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Project Link
-- [Link](https://telloapp.netlify.app/#)
+- [Tello](https://telloapp.netlify.app/#)
 
 ## Project Schedule
 
@@ -12,7 +12,7 @@
 |Day 2| Working RestAPI | Complete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
 |Day 4| MVP & Bug Fixes | Complete
-|Day 5| Final Touches and Present | Incomplete
+|Day 5| Final Touches and Present | Complete
 
 ## Project Description
 For our unit03 project, we are creating a clone of the popular productivity app Trello. Users sign up and login with a custom username and password and then are taken to a mobile, tablet, and desktop application where they can add a board. In each board, they can add a card that holds a list of items tied to the specified card. Each user utilizes CRUD (i.e. create, read, update, and delete) functionality to manipulate each card and/or board on a backend server created and maintained by Ruby on Rails and SQL.
